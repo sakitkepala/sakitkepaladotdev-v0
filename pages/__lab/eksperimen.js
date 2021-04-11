@@ -1,6 +1,25 @@
 import * as React from "react";
 
-function Labs({ children }) {
+import fs from "fs";
+import { join } from "path";
+
+export async function getStaticProps() {
+  const postsDirectory = join(process.cwd(), "pages", "__lab", "eksperimen");
+  const slugs = fs.readdirSync(postsDirectory);
+  console.log(slugs);
+
+  const fileContents = fs.readFileSync(join(postsDirectory, slugs[0]), "utf8");
+  console.log(fileContents);
+
+  return { props: {} };
+}
+
+// const slug = "1";
+// const realSlug = slug.replace(/\.js$/, "");
+// const fullPath = join(postsDirectory, `${realSlug}.md`);
+// const fileContents = readFileSync(fullPath, "utf8");
+
+function Eksperimen() {
   return (
     <main>
       <h1>Lab</h1>
@@ -16,4 +35,4 @@ function Labs({ children }) {
   );
 }
 
-export default Labs;
+export default Eksperimen;
