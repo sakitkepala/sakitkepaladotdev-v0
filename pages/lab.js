@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Labs({ children }) {
+function Lab() {
   return (
     <main>
       <h1>Lab</h1>
@@ -16,4 +16,4 @@ function Labs({ children }) {
   );
 }
 
-export default Labs;
+export default Lab;
