@@ -1,10 +1,10 @@
 import * as React from "react";
 import Head from "next/head";
-import { ScreenEksperimen, data } from "../components/eksperimen";
-import styles from "../styles/Home.module.css";
+import { getTerbaru } from "../lib/api/eksperimen";
 
-// spike:
-import { getTerbaru } from "../components/eksperimen/data";
+import { ScreenEksperimen } from "../components/eksperimen";
+
+import styles from "../styles/Home.module.css";
 
 export async function getStaticProps(context) {
   return {

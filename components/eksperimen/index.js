@@ -1,8 +1,14 @@
 import dynamic from "next/dynamic";
 
-const loadEksperimen = (componentPath, fallback) => {
+const loadEksperimen = (data, fallback) => {
+  // TODO: refaktor path dynamic import-nya supaya gak hardcoded gitu
+  // ? pakai konfig module/direktori resolver di webpack, mungkin?
   return dynamic(
-    () => import(`${componentPath}`).then((module) => module.Screen),
+    () =>
+      import(`../../_lab/${data.slug}/src`).then(
+        (module) => module.Screen,
+        (e) => console.error(e)
+      ),
     {
       ssr: false,
       loading: () => fallback,
@@ -11,7 +17,7 @@ const loadEksperimen = (componentPath, fallback) => {
 };
 
 function ScreenEksperimen({ data, children }) {
-  if (!Boolean(data)) {
+  if (data === undefined) {
     return (
       <p>
         !!! Error waktu memuat tampilan eksperimen. Data/ID belum diterima. !!!
@@ -20,7 +26,7 @@ function ScreenEksperimen({ data, children }) {
   }
 
   const fallback = children ?? <p>Loading...</p>;
-  const LoadedComponent = loadEksperimen(data.component, fallback);
+  const LoadedComponent = loadEksperimen(data, fallback);
   return <LoadedComponent />;
 }
 
