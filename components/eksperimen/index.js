@@ -1,16 +1,8 @@
 import dynamic from "next/dynamic";
 
-const eksperimen = {
-  component: `./screens/20210411-1`,
-  tanggal: "2021-04-11",
-  tanggalSunting: null,
-  judul: "Spike",
-  deskripsi: "Bla bla bla. Awesome, ye kan?",
-};
-
-const loadEksperimen = (fallback) => {
+const loadEksperimen = (componentPath, fallback) => {
   return dynamic(
-    () => import(`${eksperimen.component}`).then((mod) => mod.Screen),
+    () => import(`${componentPath}`).then((module) => module.Screen),
     {
       ssr: false,
       loading: () => fallback,
@@ -18,10 +10,18 @@ const loadEksperimen = (fallback) => {
   );
 };
 
-function ScreenEksperimen({ children }) {
+function ScreenEksperimen({ data, children }) {
+  if (!Boolean(data)) {
+    return (
+      <p>
+        !!! Error waktu memuat tampilan eksperimen. Data/ID belum diterima. !!!
+      </p>
+    );
+  }
+
   const fallback = children ?? <p>Loading...</p>;
-  const LoadedComponent = loadEksperimen(fallback);
+  const LoadedComponent = loadEksperimen(data.component, fallback);
   return <LoadedComponent />;
 }
 
-export { ScreenEksperimen, eksperimen as data };
+export { ScreenEksperimen };
