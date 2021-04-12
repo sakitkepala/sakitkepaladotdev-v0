@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import Link from "next/link";
 import { LayoutHalaman } from "../components/layout-halaman";
+import { NavLink } from "../components/nav-link";
 
 import styles from "../styles/Home.module.css";
 
@@ -27,15 +27,11 @@ export default function HalamanDika() {
         <p>
           Ini situs web pribadi saya. Sungguh{" "}
           <u>
-            <Link href="/lab">
-              <a>bukan situs portofolio</a>
-            </Link>
+            <NavLink href="/lab">bukan situs portofolio</NavLink>
           </u>
           , melainkan sekedar pojokan sempitku di internet untuk{" "}
           <u>
-            <Link href="/">
-              <a>bereksperimen</a>
-            </Link>
+            <NavLink href="/">bereksperimen</NavLink>
           </u>{" "}
           (<em>main-main?</em>) dengan teknologi antarmuka web dan juga
           pengalaman interaktif di <em>browser</em>.
@@ -51,17 +47,13 @@ export default function HalamanDika() {
           Omong-omong, karena sudah di sini kurasa kamu mau coba eksperimen
           terbaru saya di halaman{" "}
           <u>
-            <Link href="/">
-              <a>&larr;Depan</a>
-            </Link>
+            <NavLink href="/">&larr;Depan</NavLink>
           </u>
           . Sedangkan koleksi eksperimen-eksperimen yang terdahulu masih bisa
           diakses {/*, yang kukumpulkan di halaman{" "} */}
           lewat halaman{" "}
           <u>
-            <Link href="/lab">
-              <a>Eksperimen&rarr;</a>
-            </Link>
+            <NavLink href="/lab">Eksperimen&rarr;</NavLink>
           </u>{" "}
           di sebelah &mdash;barangkali penasaran.
         </p>

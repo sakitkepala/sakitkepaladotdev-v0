@@ -1,22 +1,20 @@
 import { motion } from "framer-motion";
 import { getListInfoPostingan } from "../lib/api/tulisan";
 
-import Link from "next/link";
 import { LayoutHalaman } from "../components/layout-halaman";
+import { NavLink } from "../components/nav-link";
 
 import styles from "../styles/Home.module.css";
 
 function ListItemPostingan({ info }) {
   const { slug, tanggal, judul } = info;
   return (
-    <Link href={`/tulisan/${slug}`}>
-      <a>
-        {/* TODO: styling, jangan pake nbsp wkwk */}
-        {tanggal}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <u>{judul}</u> &rarr;
-      </a>
-    </Link>
+    <NavLink href={`/tulisan/${slug}`}>
+      {/* TODO: styling, jangan pake nbsp wkwk */}
+      {tanggal}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <u>{judul}</u> &rarr;
+    </NavLink>
   );
 }
 

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { getSemuaSortir } from "../lib/api/eksperimen";
 
-import Link from "next/link";
 import { LayoutHalaman } from "../components/layout-halaman";
+import { NavLink } from "../components/nav-link";
 
 import styles from "../styles/Home.module.css";
 
@@ -10,22 +10,18 @@ function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
   return (
     <>
-      <Link href={`/lab/eksperimen/${repo}`}>
-        <a>
-          {/* TODO: styling, jangan pake nbsp wkwk */}
-          {tanggal}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <u>{judul}</u>
-        </a>
-      </Link>
+      <NavLink href={`/lab/eksperimen/${repo}`}>
+        {/* TODO: styling, jangan pake nbsp wkwk */}
+        {tanggal}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <u>{judul}</u>
+      </NavLink>
       {source ? (
         <pre>
           [src]{" "}
-          <Link href={source}>
-            <a>
-              <u>{source}</u>
-            </a>
-          </Link>
+          <NavLink href={source}>
+            <u>{source}</u>
+          </NavLink>
         </pre>
       ) : null}
     </>
