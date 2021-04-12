@@ -5,7 +5,7 @@ const loadEksperimen = (data, fallback) => {
   // ? pakai konfig module/direktori resolver di webpack, mungkin?
   return dynamic(
     () =>
-      import(`../../_lab/${data.slug}/src`).then(
+      import(`../_lab/${data.slug}/src`).then(
         (module) => module.Screen,
         (e) => console.error(e)
       ),
