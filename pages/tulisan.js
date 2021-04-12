@@ -2,17 +2,6 @@ import * as React from "react";
 import Link from "next/link";
 import { getListInfoPostingan } from "../lib/api/tulisan";
 
-export async function getStaticPaths() {
-  const paths = getListInfoPostingan().map((postingan) => ({
-    params: { slug: postingan.slug },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
 export async function getStaticProps() {
   const listPostingan = getListInfoPostingan();
 
