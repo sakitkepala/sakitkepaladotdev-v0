@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import { getSemuaSortir } from "../lib/api/eksperimen";
 
 export async function getStaticProps(context) {
@@ -17,12 +18,25 @@ export default function Lab({ data }) {
       <p>Koleksi eksperimen-eksperimen halaman depan interaktif...</p>
 
       <ul>
-        {data.map(({ id, tanggal, judul }) => (
+        {data.map(({ id, tanggal, judul, repo, source }) => (
           <li key={id}>
-            {/* TODO: styling, jangan pake nbsp wkwk */}
-            {tanggal}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {judul}
+            <Link href={`/lab/eksperimen/${repo}`}>
+              <a>
+                {/* TODO: styling, jangan pake nbsp wkwk */}
+                {tanggal}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {judul}
+              </a>
+            </Link>
+            {source ? (
+              <pre>
+                [src]{" "}
+                <Link href={source}>
+                  <a>{source}</a>
+                </Link>
+              </pre>
+            ) : null}
           </li>
         ))}
       </ul>
