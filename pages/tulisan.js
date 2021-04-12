@@ -6,12 +6,18 @@ import { LayoutHalaman } from "../components/layout-halaman";
 
 import styles from "../styles/Home.module.css";
 
-export async function getStaticProps() {
-  return {
-    props: {
-      listPostingan: getListInfoPostingan(),
-    },
-  };
+function ListItemPostingan({ info }) {
+  const { slug, tanggal, judul } = info;
+  return (
+    <Link href={`/tulisan/${slug}`}>
+      <a>
+        {/* TODO: styling, jangan pake nbsp wkwk */}
+        {tanggal}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <u>{judul}</u> &rarr;
+      </a>
+    </Link>
+  );
 }
 
 const propsMotionTransisi = {
@@ -31,20 +37,21 @@ export default function HalamanTulisan({ listPostingan }) {
         </p>
 
         <ul>
-          {listPostingan.map(({ id, tanggal, judul, slug }) => (
-            <li key={id}>
-              <Link href={`/tulisan/${slug}`}>
-                <a>
-                  {/* TODO: styling, jangan pake nbsp wkwk */}
-                  {tanggal}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <u>{judul}</u> &rarr;
-                </a>
-              </Link>
+          {listPostingan.map((postingan) => (
+            <li key={postingan.id}>
+              <ListItemPostingan info={postingan} />
             </li>
           ))}
         </ul>
       </motion.main>
     </LayoutHalaman>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      listPostingan: getListInfoPostingan(),
+    },
+  };
 }
