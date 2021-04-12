@@ -17,6 +17,8 @@ export default function HalamanDepan({ eksperimen }) {
   return (
     <motion.div
       className={styles.container}
+      initial={{ opacity: 0, translateY: 2 }}
+      animate={{ opacity: 1, translateY: 0, transition: { duration: 0.2 } }}
       exit={{ opacity: 0, transition: { duration: 1 } }}
     >
       <Head>
