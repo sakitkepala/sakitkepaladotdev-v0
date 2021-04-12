@@ -2,7 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import { getSemuaSortir } from "../lib/api/eksperimen";
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   return {
     props: {
       data: getSemuaSortir(),
@@ -26,14 +26,16 @@ export default function Lab({ data }) {
                 {tanggal}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {judul}
+                <u>{judul}</u>
               </a>
             </Link>
             {source ? (
               <pre>
                 [src]{" "}
                 <Link href={source}>
-                  <a>{source}</a>
+                  <a>
+                    <u>{source}</u>
+                  </a>
                 </Link>
               </pre>
             ) : null}
