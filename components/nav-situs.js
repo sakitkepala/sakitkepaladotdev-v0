@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 
-export function NavSitus() {
+export function NavSitus({ layoutId }) {
   return (
-    <nav className="nav-header">
+    <motion.nav layoutId={layoutId} className="nav-header">
       Navigasi&nbsp;&rarr;&rarr;&rarr;&rarr;&nbsp;
       <Link href="/">
         <a>Depan</a>
@@ -19,6 +20,6 @@ export function NavSitus() {
       <Link href="/dika">
         <a>Dika</a>
       </Link>
-    </nav>
+    </motion.nav>
   );
 }
