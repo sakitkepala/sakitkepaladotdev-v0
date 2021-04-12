@@ -9,22 +9,24 @@ import styles from "../styles/Home.module.css";
 function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
   return (
-    <>
-      <NavLink href={`/lab/eksperimen/${repo}`}>
-        {/* TODO: styling, jangan pake nbsp wkwk */}
-        {tanggal}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <u>{judul}</u>
-      </NavLink>
-      {source ? (
-        <pre>
+    <div className="eksperimen-item">
+      <div className="eksperimen-entri">
+        <NavLink href={`/lab/eksperimen/${repo}`}>
+          {/* TODO: styling, jangan pake nbsp wkwk */}
+          {tanggal}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <u>{judul}</u>
+        </NavLink>
+      </div>
+      {!source ? null : (
+        <pre className="eksperimen-source">
           [src]{" "}
           <NavLink href={source}>
             <u>{source}</u>
           </NavLink>
         </pre>
-      ) : null}
-    </>
+      )}
+    </div>
   );
 }
 

@@ -9,12 +9,14 @@ import styles from "../styles/Home.module.css";
 function ListItemPostingan({ info }) {
   const { slug, tanggal, judul } = info;
   return (
-    <NavLink href={`/tulisan/${slug}`}>
-      {/* TODO: styling, jangan pake nbsp wkwk */}
-      {tanggal}
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <u>{judul}</u> &rarr;
-    </NavLink>
+    <div className="postingan-item">
+      <NavLink href={`/tulisan/${slug}`}>
+        {/* TODO: styling, jangan pake nbsp wkwk */}
+        {tanggal}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <u>{judul}</u> &rarr;
+      </NavLink>
+    </div>
   );
 }
 
