@@ -2,7 +2,7 @@ import hydrate from "next-mdx-remote/hydrate";
 import {
   getListInfoPostingan,
   getPostinganMenurutSlug,
-} from "../../../lib/api/tulisan";
+} from "../../lib/api/tulisan";
 
 export async function getStaticPaths() {
   const paths = getListInfoPostingan().map((postingan) => ({
@@ -25,7 +25,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function TulisanPage({ postingan }) {
+export default function PostinganPage({ postingan }) {
   const { sumber, info } = postingan;
   const konten = hydrate(sumber);
   return (
