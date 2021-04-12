@@ -1,4 +1,3 @@
-import * as React from "react";
 import Head from "next/head";
 import { getTerbaru } from "../lib/api/eksperimen";
 
@@ -6,7 +5,7 @@ import { ScreenEksperimen } from "../components/eksperimen";
 
 import styles from "../styles/Home.module.css";
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   return {
     props: {
       eksperimen: getTerbaru(),
