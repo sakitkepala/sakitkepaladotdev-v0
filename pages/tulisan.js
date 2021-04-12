@@ -1,20 +1,22 @@
 import * as React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { getListInfoPostingan } from "../lib/api/tulisan";
 
 export async function getStaticProps() {
-  const listPostingan = getListInfoPostingan();
-
   return {
     props: {
-      listPostingan,
+      listPostingan: getListInfoPostingan(),
     },
   };
 }
 
 export default function Tulisan({ listPostingan }) {
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0, translateX: 100 }}
+      animate={{ opacity: 1, translateX: 0 }}
+    >
       <h1>Tulisan</h1>
 
       <p>
@@ -36,6 +38,6 @@ export default function Tulisan({ listPostingan }) {
           </li>
         ))}
       </ul>
-    </main>
+    </motion.main>
   );
 }

@@ -1,9 +1,13 @@
-import Link from "next/link";
 import * as React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 function Dika() {
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0, translateY: 100 }}
+      animate={{ opacity: 1, translateY: 0, transition: { duration: 1.2 } }}
+    >
       <h1 id="hai">Hai!</h1>
       <p>
         Saya{" "}
@@ -102,7 +106,7 @@ function Dika() {
       <br />
 
       <p>:coffee:</p>
-    </main>
+    </motion.main>
   );
 }
 

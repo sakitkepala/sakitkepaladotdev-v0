@@ -1,9 +1,11 @@
 import Link from "next/link";
-import PageWrapper from "../components/PageWrapper";
+import { useRouter } from "next/router";
+import { AnimatePresence } from "framer-motion";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
     <>
       <nav>
@@ -21,15 +23,20 @@ function MyApp({ Component, pageProps }) {
         </Link>
         &nbsp; | &nbsp;
         <Link href="/dika">
-          {/* <a>@dika</a> */}
-          {/* <a>@Dika</a> */}
-          {/* <a>dika</a> */}
           <a>Dika</a>
         </Link>
       </nav>
 
       <div className="konten">
-        <Component {...pageProps} />
+        <AnimatePresence
+          exitBeforeEnter
+          /**
+           * Kita nanti butuh ini, karena alasan tertentu:
+           * onExitComplete={handleExitComplete}
+           */
+        >
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
       </div>
     </>
   );

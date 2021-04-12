@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { getSemuaSortir } from "../lib/api/eksperimen";
 
 export async function getStaticProps() {
@@ -12,10 +13,13 @@ export async function getStaticProps() {
 
 export default function Lab({ data }) {
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0, translateX: 100 }}
+      animate={{ opacity: 1, translateX: 0 }}
+    >
       <h1>Lab</h1>
 
-      <p>Koleksi eksperimen-eksperimen halaman depan interaktif...</p>
+      <p>Arsip eksperimen-eksperimen halaman interaktif yang lama:</p>
 
       <ul>
         {data.map(({ id, tanggal, judul, repo, source }) => (
@@ -42,6 +46,6 @@ export default function Lab({ data }) {
           </li>
         ))}
       </ul>
-    </main>
+    </motion.main>
   );
 }
