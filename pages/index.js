@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { getTerbaru } from "../lib/api/eksperimen";
-
 import { ScreenEksperimen } from "../components/eksperimen";
 
 import styles from "../styles/Home.module.css";
@@ -14,13 +13,11 @@ export async function getStaticProps() {
   };
 }
 
-export default function Depan({ eksperimen }) {
+export default function HalamanDepan({ eksperimen }) {
   return (
     <motion.div
       className={styles.container}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 3 } }}
-      exit={{ opacity: 0, transition: { duration: 3 } }}
+      exit={{ opacity: 0, transition: { duration: 1 } }}
     >
       <Head>
         <title>
@@ -32,11 +29,13 @@ export default function Depan({ eksperimen }) {
 
       <main className={styles.main}>
         <ScreenEksperimen data={eksperimen}>
-          <p>
-            Kamu sedang berada di eksperimen web interaktif halaman depan
-            sakitkepala.dev
-          </p>
-          <p>Sedang memuat eksperimen...</p>
+          <div className="screen-loading">
+            <p>
+              Kamu sedang berada di eksperimen web interaktif halaman depan
+              sakitkepala.dev
+            </p>
+            <p>Sedang memuat eksperimen...</p>
+          </div>
         </ScreenEksperimen>
       </main>
     </motion.div>

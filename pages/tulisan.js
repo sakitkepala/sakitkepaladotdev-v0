@@ -3,6 +3,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getListInfoPostingan } from "../lib/api/tulisan";
 
+import styles from "../styles/Home.module.css";
+
 export async function getStaticProps() {
   return {
     props: {
@@ -14,7 +16,8 @@ export async function getStaticProps() {
 export default function Tulisan({ listPostingan }) {
   return (
     <motion.main
-      initial={{ opacity: 0, translateX: 100 }}
+      className={styles.main}
+      initial={{ opacity: 0, translateX: 20 }}
       animate={{ opacity: 1, translateX: 0 }}
     >
       <h1>Tulisan</h1>

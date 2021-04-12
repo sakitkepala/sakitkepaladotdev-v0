@@ -2,11 +2,14 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import styles from "../styles/Home.module.css";
+
 function Dika() {
   return (
     <motion.main
-      initial={{ opacity: 0, translateY: 100 }}
-      animate={{ opacity: 1, translateY: 0, transition: { duration: 1.2 } }}
+      className={styles.main}
+      initial={{ opacity: 0, translateY: 2 }}
+      animate={{ opacity: 1, translateY: 0, transition: { duration: 0.2 } }}
     >
       <h1 id="hai">Hai!</h1>
       <p>
