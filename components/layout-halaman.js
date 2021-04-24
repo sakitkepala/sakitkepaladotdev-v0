@@ -9,7 +9,8 @@ const bgPatternProp = {
   backgroundRepeat: "repeat",
 };
 
-function LayoutHalaman({ title, children }) {
+function LayoutHalaman({ title, navigasi, children }) {
+  const elemenNavigasi = navigasi || <NavSitus layoutId="nav-shared" />;
   return (
     <>
       <Head>
@@ -17,8 +18,16 @@ function LayoutHalaman({ title, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div style={{ ...bgPatternProp }}>
-        <NavSitus layoutId="nav-shared" />
+      <div
+        className="wadah-halaman"
+        // TODO: ekstrak style jadi file CSS / SCSS / Styled / Emotion
+        style={{
+          ...bgPatternProp,
+          // border: "solid blue 10px", // alat bantu visual dimensi wadahnya
+          minHeight: "100vh",
+        }}
+      >
+        {elemenNavigasi}
 
         {/* <!----- OUTPUT CHILDREN -----> */}
         {children}

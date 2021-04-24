@@ -6,7 +6,7 @@ import "../styles/globals.css";
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <div className="sakitkepala-app">
+    <div className="cangkang-situs-sakitkepala">
       <AnimateSharedLayout>
         <AnimatePresence
           exitBeforeEnter
