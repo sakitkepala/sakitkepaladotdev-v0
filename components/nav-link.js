@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export function NavLink({ href, children }) {
+export function NavLink({ href, children, style }) {
   return (
     <Link href={href}>
-      <a>{children}</a>
+      <a style={style}>{children}</a>
     </Link>
   );
 }

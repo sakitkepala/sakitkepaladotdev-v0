@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { getTerbaru } from "../lib/api/eksperimen";
 
 import { LayoutHalaman } from "../components/layout-halaman";
+import { NavBar } from "../components/nav-situs";
 import { ScreenEksperimen } from "../components/eksperimen";
 
 import styles from "../styles/Home.module.css";
@@ -24,6 +25,7 @@ export default function HalamanDepan({ eksperimen }) {
   return (
     <LayoutHalaman
       title={`${eksperimen.judul} - Sebuah eksperimen web interaktif di halaman depan sakitkepala.dev`}
+      navigasi={<NavBar style={{ backgroundColor: "blue", border: "none" }} />}
     >
       <motion.main className={styles.main} {...propsMotionTransisi}>
         <ScreenEksperimen data={eksperimen}>

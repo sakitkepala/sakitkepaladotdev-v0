@@ -10,7 +10,11 @@ const bgPatternProp = {
 };
 
 function LayoutHalaman({ title, navigasi, children }) {
+  // TODO: NavBar di Layout ini diberi style generik semua halaman, gak default.
+  // Default-nya dari komponen unstyled, supaya bisa di-override dari halaman langsung.
+  // Yang generik dibuat di Layout ini:
   const elemenNavigasi = navigasi || <NavBar />;
+
   return (
     <>
       <Head>
@@ -24,10 +28,14 @@ function LayoutHalaman({ title, navigasi, children }) {
         style={{
           ...bgPatternProp,
           // border: "solid blue 10px", // alat bantu visual dimensi wadahnya
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           minHeight: "100vh",
         }}
       >
-        {elemenNavigasi}
+        <header>{elemenNavigasi}</header>
 
         {/* <!----- OUTPUT CHILDREN -----> */}
         {children}
