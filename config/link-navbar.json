@@ -1,0 +1,22 @@
+[
+  {
+    "teks": "Depan",
+    "href": "/",
+    "diarsip": false
+  },
+  {
+    "teks": "Eksperimen",
+    "href": "/lab",
+    "diarsip": false
+  },
+  {
+    "teks": "Tulisan",
+    "href": "/tulisan",
+    "diarsip": false
+  },
+  {
+    "teks": "Dika",
+    "href": "/dika",
+    "diarsip": false
+  }
+]

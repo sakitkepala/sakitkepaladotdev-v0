@@ -1,17 +1,22 @@
 import { motion } from "framer-motion";
 import { NavLink } from "./nav-link";
 
-export function NavSitus({ layoutId }) {
+import dataLinkNavbar from "../config/link-navbar.json";
+
+export function NavBar({ layoutId = "nav-shared", style }) {
   return (
     <motion.nav layoutId={layoutId} className="nav-header">
-      Navigasi&nbsp;&rarr;&rarr;&rarr;&rarr;&nbsp;
-      <NavLink href="/">Depan</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink href="/lab">Eksperimen</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink href="/tulisan">Tulisan</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink href="/dika">Dika</NavLink>
+      {dataLinkNavbar.map(({ href, teks, diarsip }) =>
+        diarsip ? null : (
+          <NavLink
+            key={href}
+            href={href}
+            style={{ border: "solid black 1px", ...style }}
+          >
+            {teks}
+          </NavLink>
+        )
+      )}
     </motion.nav>
   );
 }
