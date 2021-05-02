@@ -1,9 +1,25 @@
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
+import { IoMail } from "react-icons/io5";
 import { NavLink } from "../components/nav-link";
 
 import styles from "../styles/Dika.module.scss";
+
+const listIcon = [
+  { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
+  {
+    href: "https://linkedin.com/in/andikapriyotama",
+    ikon: <SiLinkedin size="64" />,
+  },
+  { href: "https://github.com/sakitkepala", ikon: <SiGithub size="64" /> },
+  { href: "https://gitlab.com/andikapriyotama", ikon: <SiGitlab size="64" /> },
+  {
+    href: "https://bitbucket.org/andikapriyotama",
+    ikon: <SiBitbucket size="64" />,
+  },
+];
 
 const propsMotionTransisi = {
   initial: { opacity: 0, translateY: 2 },
@@ -123,19 +139,21 @@ export default function HalamanDika() {
               <p>
                 Bukan warganet media sosial yang aktif...
                 <br />
-                tapi saya tetap bisa dikontak di internet lewat beberapa layanan
-                berikut:
+                tapi saya tetap bisa ditemukan di internet lewat beberapa
+                layanan berikut:
               </p>
 
-              <ul>
-                <li>Email</li>
-                <li>LinkedIn</li>
-                <li>GitHub</li>
-                <li>Gitlab</li>
-                <li>BitBucket</li>
+              <ul className={styles.listIkon}>
+                {listIcon.map(({ href, ikon }) => (
+                  <li key={href}>
+                    <div style={{ width: 64, height: 64 }}>
+                      <NavLink href={href}>{ikon}</NavLink>
+                    </div>
+                  </li>
+                ))}
               </ul>
 
-              <p style={{ textAlign: "center" }}>:coffee:</p>
+              {/* <p style={{ textAlign: "center" }}>☕</p> */}
             </div>
           </div>
         </motion.main>

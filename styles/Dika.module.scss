@@ -101,6 +101,14 @@
     .dalaman {
       max-width: 800px;
       margin: auto auto;
+
+      .listIkon {
+        display: flex;
+        justify-content: space-between;
+        margin: 4em 0;
+
+        list-style: none;
+      }
     }
   }
 
