@@ -14,11 +14,11 @@ const listIcon = [
     ikon: <SiLinkedin size="64" />,
   },
   { href: "https://github.com/sakitkepala", ikon: <SiGithub size="64" /> },
-  { href: "https://gitlab.com/andikapriyotama", ikon: <SiGitlab size="64" /> },
   {
     href: "https://bitbucket.org/andikapriyotama",
     ikon: <SiBitbucket size="64" />,
   },
+  { href: "https://gitlab.com/andikapriyotama", ikon: <SiGitlab size="64" /> },
 ];
 
 const propsMotionTransisi = {
@@ -123,11 +123,11 @@ export default function HalamanDika() {
                 .
               </p>
 
-              <p>Dengan senang hati, nanti saya balas sapanya {":))"}</p>
+              <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
             </div>
           </div>
 
-          <div className={styles.bagianDeskripsi}>
+          <div id="dika" className={styles.bagianDeskripsi}>
             <div className={styles.wadahTulisanPendek}>Tentang Dika</div>
             <div className={styles.dalaman}>...</div>
           </div>
