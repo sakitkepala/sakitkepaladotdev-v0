@@ -1,7 +1,17 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
-import { NavBar } from "../components/nav-situs";
+import { NavLinkItem } from "../components/nav-situs";
+import dataLinkNavbar from "../config/link-navbar.json";
 
 import styles from "../styles/layout.module.css";
+
+const NavBar = () => {
+  return (
+    <motion.nav layoutId="nav-shared" className="nav-header">
+      <NavLinkItem dataLink={dataLinkNavbar} />
+    </motion.nav>
+  );
+};
 
 function LayoutHalaman({ title, navigasi, children }) {
   // TODO: NavBar di Layout ini diberi style generik semua halaman, gak default.

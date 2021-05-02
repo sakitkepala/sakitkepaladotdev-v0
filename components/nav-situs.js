@@ -20,3 +20,13 @@ export function NavBar({ layoutId = "nav-shared", style }) {
     </motion.nav>
   );
 }
+
+export function NavLinkItem({ dataLink }) {
+  return dataLink.map(({ href, teks, diarsip }) =>
+    diarsip ? null : (
+      <NavLink key={href} href={href} style={{ border: "solid black 1px" }}>
+        {teks}
+      </NavLink>
+    )
+  );
+}
