@@ -23,6 +23,15 @@ export default function HalamanDika() {
       </Head>
 
       <div className={styles.wadahHalaman}>
+        <div className={styles.logo}>
+          <NavLink href="/">
+            andika
+            <br />
+            priyotama
+            {/* <br />
+            sakitkepala.dev&#47; */}
+          </NavLink>
+        </div>
         <nav className={styles.menuNav}>
           <NavLinkItem dataLink={dataLinkNavbar} />
         </nav>
@@ -34,15 +43,15 @@ export default function HalamanDika() {
               <h1 id="hai" className={styles.haiHeading}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika">Dika</a>
+                  <a href="#dika">Dika&#8601;</a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
                 <span className={styles.anotasi}>
-                  &mdash;dan software developer
+                  &mdash;dan <a href="#dika">software developer&#8601;</a>
                 </span>
               </h1>
 
-              <div className="hai-tulisan">
+              <div className={styles.haiTulisan}>
                 <p>
                   Ini situs web pribadi saya. Sungguh{" "}
                   <u>
@@ -61,70 +70,67 @@ export default function HalamanDika() {
             </div>
           </div>
 
-          <div className="bagianLain">
-            {/* <h2 id="situs">Tentang situs ini</h2> */}
-            <p id="intro-situs">
-              Omong-omong, karena sudah di sini kurasa kamu mau coba eksperimen
-              terbaru saya di halaman{" "}
-              <u>
-                <NavLink href="/">&larr;Depan</NavLink>
-              </u>
-              . Sedangkan koleksi eksperimen-eksperimen yang terdahulu masih
-              bisa diakses {/*, yang kukumpulkan di halaman{" "} */}
-              lewat halaman{" "}
-              <u>
-                <NavLink href="/lab">Eksperimen&rarr;</NavLink>
-              </u>{" "}
-              di sebelah &mdash;barangkali penasaran.
-            </p>
-            <p>
-              Setiap halaman dan interaksi-interaksi mikronya dibuat dengan
-              penuh ketelitian dan kasih sayang :p demi menciptakan sedikit
-              kesenangan[*] selama main-main di tempat ini ...kuharap :D
-            </p>
-            <p>
-              Kalau kamu suka karya buatan saya, boleh lah sapa-sapa lewat{" "}
-              <u>
-                <a href="#sosial">kontak di bawah</a>
-              </u>
-              . Dengan senang hati, nanti saya balas sapanya.
-            </p>
-            <p>Semoga suka {":))"}</p>
+          <div className={styles.bagianDeskripsi}>
+            <div className={styles.wadahTulisanPendek}>Tentang Situs Ini</div>
+            <div className={styles.dalaman}>
+              <p>
+                Situs ini masih <em>work in progress</em>, dan saya anggap akan{" "}
+                &#42;selalu&#42; <em>work in progress</em>, yang mana saya akan
+                membuat antarmuka eksperimental untuk halaman-halaman situs ini
+                sebagai projek yang berkelanjutan.
+              </p>
 
-            <p>
-              [*] Saya sadar desain visualnya jelek, mohon maaf. Semoga tidak
-              mengurangi kesenangannya, ya.
-            </p>
+              <p>
+                Eksperimen web interaktif akan saya sajikan di halaman{" "}
+                <u>
+                  <NavLink href="/">&#8598;Depan</NavLink>
+                </u>{" "}
+                dan arsip eksperimen-eksperimen yang terdahulunya akan saya
+                kumpulkan di halaman{" "}
+                <u>
+                  <NavLink href="/lab">Lab&#8599;</NavLink>
+                </u>{" "}
+                bersama projek-projek lainnya.
+              </p>
+
+              <p>
+                Sambil menunggu apa yang akan saya buat di sini, silakan boleh
+                sapa-sapa lewat{" "}
+                <u>
+                  <a href="#sosial">kontak di bagian bawah&#8600;</a>
+                </u>
+                .
+              </p>
+
+              <p>Dengan senang hati, nanti saya balas sapanya {":))"}</p>
+            </div>
           </div>
 
-          <div style={{ display: "none" }}>
-            <p>***</p>
+          <div className={styles.bagianDeskripsi}>
+            <div className={styles.wadahTulisanPendek}>Tentang Dika</div>
+            <div className={styles.dalaman}>...</div>
+          </div>
 
-            <br />
+          <div className={styles.bagianDeskripsi}>
+            <div className={styles.dalaman}>
+              <div className={styles.wadahTulisanPendek}>Di Internet</div>
 
-            <h2 id="dika">Lebih banyak tentang Dika</h2>
-            <p>Konten yang awesome, ye kan?</p>
+              <p>
+                Bukan warganet media sosial yang aktif...
+                <br />
+                tapi saya tetap bisa dikontak di internet lewat beberapa layanan
+                berikut:
+              </p>
 
-            <h2 id="sakitkepala">Tentang `sakitkepala`</h2>
-            <p>Konten yang awesome, ye kan?</p>
+              <ul>
+                <li>Email</li>
+                <li>LinkedIn</li>
+                <li>GitHub</li>
+                <li>Gitlab</li>
+              </ul>
 
-            <h2 id="sosial">Kirim sapa</h2>
-            <p>
-              Saya tetap bisa dikontak di internet lewat beberapa layanan
-              berikut (meski bukan termasuk aktif sebagai warganet media
-              sosial):
-            </p>
-            <ul>
-              <li>Email</li>
-              <li>LinkedIn</li>
-              <li>GitHub</li>
-              <li>Gitlab</li>
-            </ul>
-            <p>Bagaimanapun, terima kasih sudah menyempatkan waktu.</p>
-
-            <br />
-
-            <p>:coffee:</p>
+              <p style={{ textAlign: "center" }}>:coffee:</p>
+            </div>
           </div>
         </motion.main>
       </div>
