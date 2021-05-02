@@ -37,7 +37,7 @@ export default function HalamanDika() {
       <div className={styles.wadahHalaman}>
         <div className={styles.logo}>
           <NavLink href="/">
-            andika
+            &gt; andika
             <br />
             priyotama
             {/* <br />
@@ -64,7 +64,9 @@ export default function HalamanDika() {
               <h1 id="hai" className={styles.haiHeading}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika">Dika&#8601;</a>
+                  <a href="#dika" style={{ color: "#4361ee" }}>
+                    Dika&#8601;
+                  </a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
                 <span className={styles.anotasi}>
@@ -137,10 +139,8 @@ export default function HalamanDika() {
               <div className={styles.wadahTulisanPendek}>Di Internet</div>
 
               <p>
-                Bukan warganet media sosial yang aktif...
-                <br />
-                tapi saya tetap bisa ditemukan di internet lewat beberapa
-                layanan berikut:
+                Saya bisa ditemukan di internet lewat beberapa layanan berikut
+                meski bukan warganet media sosial yang aktif:
               </p>
 
               <ul className={styles.listIkon}>
@@ -160,7 +160,7 @@ export default function HalamanDika() {
 
         <footer className={styles.footer}>
           <div className={styles.logoFooter}>
-            <NavLink href="/">sakitkepala.dev&#47;</NavLink>
+            <NavLink href="/">&gt; sakitkepala.dev{/* &#47; */}</NavLink>
           </div>
 
           <div className={styles.hakCipta}>
