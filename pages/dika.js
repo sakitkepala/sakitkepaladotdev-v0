@@ -23,45 +23,42 @@ export default function HalamanDika() {
       </Head>
 
       <div className={styles.wadahHalaman}>
-        <motion.nav layoutId="nav-shared" className="nav-header">
+        <nav className={styles.menuNav}>
           <NavLinkItem dataLink={dataLinkNavbar} />
-        </motion.nav>
+        </nav>
 
         <motion.main className={styles.main} {...propsMotionTransisi}>
-          <div className={styles.landing}>
-            <h2 id="hai" className={styles.heading}>
-              Hai!
-              <br />
-              Saya{" "}
-              <u>
-                {" "}
-                <a href="#dika">Dika</a>
-              </u>
-              , {/* <br /> */}
-              pengrajin pengalaman interaktif untuk web.
-            </h2>
-            <p>
-              Saya{" "}
-              <u>
-                {" "}
-                <a href="#dika">Dika</a>
-              </u>
-              , {/* <br /> */}
-              pengrajin pengalaman interaktif untuk web.
-            </p>
-            <p>
-              Ini situs web pribadi saya. Sungguh{" "}
-              <u>
-                <NavLink href="/lab">bukan situs portofolio</NavLink>
-              </u>
-              , melainkan sekedar pojokan sempitku di internet untuk{" "}
-              <u>
-                <NavLink href="/">bereksperimen</NavLink>
-              </u>{" "}
-              (<em>main-main?</em>) dengan teknologi antarmuka web dan juga
-              pengalaman interaktif di <em>browser</em>.
-            </p>
-            <p>Selamat datang!</p>
+          {/* konten */}
+          <div className={styles.bagianHai}>
+            <div className={styles.dalaman}>
+              <h1 id="hai" className={styles.haiHeading}>
+                Hai! <span className="emoji-lambai">👋</span> Saya{" "}
+                <u>
+                  <a href="#dika">Dika</a>
+                </u>
+                , pengrajin pengalaman interaktif untuk web.
+                <span className={styles.anotasi}>
+                  &mdash;dan software developer
+                </span>
+              </h1>
+
+              <div className="hai-tulisan">
+                <p>
+                  Ini situs web pribadi saya. Sungguh{" "}
+                  <u>
+                    <NavLink href="/lab">bukan situs portofolio</NavLink>
+                  </u>
+                  , melainkan sekedar pojokan sempitku di internet untuk{" "}
+                  <u>
+                    <NavLink href="/">bereksperimen</NavLink>
+                  </u>{" "}
+                  (<em>bermain-main?</em>) dengan teknologi antarmuka web dan
+                  juga pengalaman interaktif di <em>browser</em>.
+                </p>
+
+                <p>Selamat datang!</p>
+              </div>
+            </div>
           </div>
 
           <div className="bagianLain">
