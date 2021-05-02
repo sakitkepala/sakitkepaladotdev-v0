@@ -1,10 +1,10 @@
+import Head from "next/head";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { getSemuaSortir } from "../lib/api/eksperimen";
-
-import { LayoutHalaman } from "../components/layout-halaman";
 import { NavLink } from "../components/nav-link";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Dika.module.scss";
 
 function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
@@ -37,20 +37,53 @@ const propsMotionTransisi = {
 
 export default function HalamanLab({ listInfo }) {
   return (
-    <LayoutHalaman title="Arsip eksperimen di sakitkepala.dev">
-      <motion.main className={styles.main} {...propsMotionTransisi}>
-        <h1>Lab</h1>
-        <p>Arsip eksperimen-eksperimen halaman interaktif yang lama:</p>
+    <>
+      <Head>
+        <title>Arsip eksperimen di sakitkepala.dev</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <ul>
-          {listInfo.map((eksperimen) => (
-            <li key={eksperimen.id}>
-              <ListItemEksperimen info={eksperimen} />
-            </li>
-          ))}
-        </ul>
-      </motion.main>
-    </LayoutHalaman>
+      <div className={styles.wadahHalaman}>
+        <div className={styles.logo}>
+          <NavLink href="/">
+            andika
+            <br />
+            priyotama
+            {/* <br />
+            sakitkepala.dev&#47; */}
+          </NavLink>
+        </div>
+
+        <nav className={styles.menuNav}>
+          <Link href="/">
+            <a className={styles.linkMenu}>Depan</a>
+          </Link>
+          <Link href="/lab">
+            <a className={styles.linkMenu}>Lab</a>
+          </Link>
+          <Link href="/dika">
+            <a className={styles.linkMenu}>Dika</a>
+          </Link>
+        </nav>
+
+        <motion.main className={styles.main} {...propsMotionTransisi}>
+          <div className={styles.bagianDeskripsi}>
+            <div className={styles.dalaman}>
+              <h1>Lab</h1>
+              <p>Arsip eksperimen-eksperimen halaman interaktif yang lama:</p>
+
+              <ul>
+                {listInfo.map((eksperimen) => (
+                  <li key={eksperimen.id}>
+                    <ListItemEksperimen info={eksperimen} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.main>
+      </div>
+    </>
   );
 }
 
