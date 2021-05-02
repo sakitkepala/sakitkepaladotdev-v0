@@ -133,6 +133,18 @@ export default function HalamanDika() {
             </div>
           </div>
         </motion.main>
+
+        <footer className={styles.footer}>
+          <div className={styles.logoFooter}>
+            <NavLink href="/">sakitkepala.dev&#47;</NavLink>
+          </div>
+
+          <div className={styles.hakCipta}>
+            {new Date().getFullYear()} &copy; Andika Priyotama Dharminto
+          </div>
+
+          <div className={styles.emoji}>☕</div>
+        </footer>
       </div>
     </>
   );

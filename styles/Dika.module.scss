@@ -41,6 +41,7 @@
     position: absolute;
     top: 1.6em;
     left: 1.6em;
+    color: cornflowerblue;
   }
 
   .bagianHai {
@@ -93,6 +94,32 @@
     .dalaman {
       max-width: 800px;
       margin: auto auto;
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+
+    padding: 1.6em;
+
+    text-align: center;
+
+    .logoFooter {
+      width: 100%;
+      font-size: 0.8em;
+      font-family: "Krona One", sans-serif;
+      text-align: left;
+    }
+
+    .hakCipta {
+      width: 100%;
+      font-size: 1em;
+    }
+
+    .emoji {
+      width: 100%;
+      text-align: right;
     }
   }
 }
