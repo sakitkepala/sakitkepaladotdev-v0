@@ -1,110 +1,136 @@
+import Head from "next/head";
 import { motion } from "framer-motion";
 
-import { LayoutHalaman } from "../components/layout-halaman";
+import dataLinkNavbar from "../config/link-navbar.json";
 import { NavLink } from "../components/nav-link";
+import { NavLinkItem } from "../components/nav-situs";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Dika.module.scss";
 
 const propsMotionTransisi = {
   initial: { opacity: 0, translateY: 2 },
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
 };
 
+console.log(styles.wadahHalaman);
+
 export default function HalamanDika() {
   return (
-    <LayoutHalaman title={`"Hai!" dari pembuat sakitkepala.dev`}>
-      <motion.main className={styles.main} {...propsMotionTransisi}>
-        <h1 id="hai">Hai!</h1>
-        <p>
-          Saya{" "}
-          <u>
-            {" "}
-            <a href="#dika">Dika</a>
-          </u>
-          , {/* <br /> */}
-          pengrajin pengalaman interaktif untuk web.
-        </p>
-        <p>
-          Ini situs web pribadi saya. Sungguh{" "}
-          <u>
-            <NavLink href="/lab">bukan situs portofolio</NavLink>
-          </u>
-          , melainkan sekedar pojokan sempitku di internet untuk{" "}
-          <u>
-            <NavLink href="/">bereksperimen</NavLink>
-          </u>{" "}
-          (<em>main-main?</em>) dengan teknologi antarmuka web dan juga
-          pengalaman interaktif di <em>browser</em>.
-        </p>
-        <p>Selamat datang!</p>
+    <>
+      <Head>
+        <title>"Hai!" dari pembuat sakitkepala.dev</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        {/* TODO: styling */}
-        <br />
-        {/* <- sengaja pakai `br` sementara wkwk, sebelum bikin styling. */}
+      <div className={styles.wadahHalaman}>
+        <motion.nav layoutId="nav-shared" className="nav-header">
+          <NavLinkItem dataLink={dataLinkNavbar} />
+        </motion.nav>
 
-        {/* <h2 id="situs">Tentang situs ini</h2> */}
-        <p id="intro-situs">
-          Omong-omong, karena sudah di sini kurasa kamu mau coba eksperimen
-          terbaru saya di halaman{" "}
-          <u>
-            <NavLink href="/">&larr;Depan</NavLink>
-          </u>
-          . Sedangkan koleksi eksperimen-eksperimen yang terdahulu masih bisa
-          diakses {/*, yang kukumpulkan di halaman{" "} */}
-          lewat halaman{" "}
-          <u>
-            <NavLink href="/lab">Eksperimen&rarr;</NavLink>
-          </u>{" "}
-          di sebelah &mdash;barangkali penasaran.
-        </p>
-        <p>
-          Setiap halaman dan interaksi-interaksi mikronya dibuat dengan penuh
-          ketelitian dan kasih sayang :p demi menciptakan sedikit kesenangan[*]
-          selama main-main di tempat ini ...kuharap :D
-        </p>
-        <p>
-          Kalau kamu suka karya buatan saya, boleh lah sapa-sapa lewat{" "}
-          <u>
-            <a href="#sosial">kontak di bawah</a>
-          </u>
-          . Dengan senang hati, nanti saya balas sapanya.
-        </p>
-        <p>Semoga suka {":))"}</p>
+        <motion.main className={styles.main} {...propsMotionTransisi}>
+          <div className={styles.landing}>
+            <h2 id="hai" className={styles.heading}>
+              Hai!
+              <br />
+              Saya{" "}
+              <u>
+                {" "}
+                <a href="#dika">Dika</a>
+              </u>
+              , {/* <br /> */}
+              pengrajin pengalaman interaktif untuk web.
+            </h2>
+            <p>
+              Saya{" "}
+              <u>
+                {" "}
+                <a href="#dika">Dika</a>
+              </u>
+              , {/* <br /> */}
+              pengrajin pengalaman interaktif untuk web.
+            </p>
+            <p>
+              Ini situs web pribadi saya. Sungguh{" "}
+              <u>
+                <NavLink href="/lab">bukan situs portofolio</NavLink>
+              </u>
+              , melainkan sekedar pojokan sempitku di internet untuk{" "}
+              <u>
+                <NavLink href="/">bereksperimen</NavLink>
+              </u>{" "}
+              (<em>main-main?</em>) dengan teknologi antarmuka web dan juga
+              pengalaman interaktif di <em>browser</em>.
+            </p>
+            <p>Selamat datang!</p>
+          </div>
 
-        <p>
-          [*] Saya sadar desain visualnya jelek, mohon maaf. Semoga tidak
-          mengurangi kesenangannya, ya.
-        </p>
+          <div className="bagianLain">
+            {/* <h2 id="situs">Tentang situs ini</h2> */}
+            <p id="intro-situs">
+              Omong-omong, karena sudah di sini kurasa kamu mau coba eksperimen
+              terbaru saya di halaman{" "}
+              <u>
+                <NavLink href="/">&larr;Depan</NavLink>
+              </u>
+              . Sedangkan koleksi eksperimen-eksperimen yang terdahulu masih
+              bisa diakses {/*, yang kukumpulkan di halaman{" "} */}
+              lewat halaman{" "}
+              <u>
+                <NavLink href="/lab">Eksperimen&rarr;</NavLink>
+              </u>{" "}
+              di sebelah &mdash;barangkali penasaran.
+            </p>
+            <p>
+              Setiap halaman dan interaksi-interaksi mikronya dibuat dengan
+              penuh ketelitian dan kasih sayang :p demi menciptakan sedikit
+              kesenangan[*] selama main-main di tempat ini ...kuharap :D
+            </p>
+            <p>
+              Kalau kamu suka karya buatan saya, boleh lah sapa-sapa lewat{" "}
+              <u>
+                <a href="#sosial">kontak di bawah</a>
+              </u>
+              . Dengan senang hati, nanti saya balas sapanya.
+            </p>
+            <p>Semoga suka {":))"}</p>
 
-        <br />
+            <p>
+              [*] Saya sadar desain visualnya jelek, mohon maaf. Semoga tidak
+              mengurangi kesenangannya, ya.
+            </p>
+          </div>
 
-        <p>***</p>
+          <div style={{ display: "none" }}>
+            <p>***</p>
 
-        <br />
+            <br />
 
-        <h2 id="dika">Lebih banyak tentang Dika</h2>
-        <p>Konten yang awesome, ye kan?</p>
+            <h2 id="dika">Lebih banyak tentang Dika</h2>
+            <p>Konten yang awesome, ye kan?</p>
 
-        <h2 id="sakitkepala">Tentang `sakitkepala`</h2>
-        <p>Konten yang awesome, ye kan?</p>
+            <h2 id="sakitkepala">Tentang `sakitkepala`</h2>
+            <p>Konten yang awesome, ye kan?</p>
 
-        <h2 id="sosial">Kirim sapa</h2>
-        <p>
-          Saya tetap bisa dikontak di internet lewat beberapa layanan berikut
-          (meski bukan termasuk aktif sebagai warganet media sosial):
-        </p>
-        <ul>
-          <li>Email</li>
-          <li>LinkedIn</li>
-          <li>GitHub</li>
-          <li>Gitlab</li>
-        </ul>
-        <p>Bagaimanapun, terima kasih sudah menyempatkan waktu.</p>
+            <h2 id="sosial">Kirim sapa</h2>
+            <p>
+              Saya tetap bisa dikontak di internet lewat beberapa layanan
+              berikut (meski bukan termasuk aktif sebagai warganet media
+              sosial):
+            </p>
+            <ul>
+              <li>Email</li>
+              <li>LinkedIn</li>
+              <li>GitHub</li>
+              <li>Gitlab</li>
+            </ul>
+            <p>Bagaimanapun, terima kasih sudah menyempatkan waktu.</p>
 
-        <br />
+            <br />
 
-        <p>:coffee:</p>
-      </motion.main>
-    </LayoutHalaman>
+            <p>:coffee:</p>
+          </div>
+        </motion.main>
+      </div>
+    </>
   );
 }
