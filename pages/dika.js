@@ -1,9 +1,7 @@
 import Head from "next/head";
+import Link from "next/link";
 import { motion } from "framer-motion";
-
-import dataLinkNavbar from "../config/link-navbar.json";
 import { NavLink } from "../components/nav-link";
-import { NavLinkItem } from "../components/nav-situs";
 
 import styles from "../styles/Dika.module.scss";
 
@@ -11,8 +9,6 @@ const propsMotionTransisi = {
   initial: { opacity: 0, translateY: 2 },
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
 };
-
-console.log(styles.wadahHalaman);
 
 export default function HalamanDika() {
   return (
@@ -32,8 +28,17 @@ export default function HalamanDika() {
             sakitkepala.dev&#47; */}
           </NavLink>
         </div>
+
         <nav className={styles.menuNav}>
-          <NavLinkItem dataLink={dataLinkNavbar} />
+          <Link href="/">
+            <a className={styles.linkMenu}>Depan</a>
+          </Link>
+          <Link href="/lab">
+            <a className={styles.linkMenu}>Lab</a>
+          </Link>
+          <Link href="/dika">
+            <a className={styles.linkMenu}>Dika</a>
+          </Link>
         </nav>
 
         <motion.main className={styles.main} {...propsMotionTransisi}>
@@ -74,8 +79,8 @@ export default function HalamanDika() {
             <div className={styles.wadahTulisanPendek}>Tentang Situs Ini</div>
             <div className={styles.dalaman}>
               <p>
-                Situs ini masih <em>work in progress</em>, dan saya anggap akan{" "}
-                &#42;selalu&#42; <em>work in progress</em>, yang mana saya akan
+                Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
+                &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
                 membuat antarmuka eksperimental untuk halaman-halaman situs ini
                 sebagai projek yang berkelanjutan.
               </p>
@@ -127,6 +132,7 @@ export default function HalamanDika() {
                 <li>LinkedIn</li>
                 <li>GitHub</li>
                 <li>Gitlab</li>
+                <li>BitBucket</li>
               </ul>
 
               <p style={{ textAlign: "center" }}>:coffee:</p>
