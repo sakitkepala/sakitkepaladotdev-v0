@@ -94,9 +94,9 @@ export default function HalamanDika() {
             </div>
           </div>
 
-          <div className={name(style.bagian, style.bagianDeskripsi)}>
-            <div className={style.wadahTulisanPendek}>Tentang Situs Ini</div>
-            <div className={style.dalaman}>
+          <div className={name(style.bagian, style["bagian-situs"])}>
+            <div className={style["heading-bagian"]}>Tentang Situs Ini</div>
+            <div className={style["bagian-situs__deskripsi"]}>
               <p>
                 Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
                 &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
@@ -130,43 +130,44 @@ export default function HalamanDika() {
             </div>
           </div>
 
-          <div id="dika" className={style.bagianDeskripsi}>
-            <div className={style.wadahTulisanPendek}>Tentang Dika</div>
-            <div className={style.dalaman}>...</div>
+          <div id="dika" className={name(style.bagian, style["bagian-dika"])}>
+            <div className={style["heading-bagian"]}>Tentang Dika</div>
+            <div className={style["bagian-dika__konten"]}>...</div>
           </div>
 
-          <div className={style.bagianDeskripsi}>
-            <div className={style.dalaman}>
-              <div className={style.wadahTulisanPendek}>Di Internet</div>
+          <div className={name(style.bagian, style["bagian-internet"])}>
+            <div className={style["heading-bagian"]}>Di Internet</div>
 
+            <div className={style["bagian-internet__deskripsi"]}>
               <p>
                 Saya bisa ditemukan di internet lewat beberapa layanan berikut
                 meski bukan warganet media sosial yang aktif:
               </p>
-
-              <ul className={style.listIkon}>
-                {listIcon.map(({ href, ikon }) => (
-                  <li key={href}>
-                    <div style={{ width: 64, height: 64 }}>
-                      <NavLink href={href}>{ikon}</NavLink>
-                    </div>
-                  </li>
-                ))}
-              </ul>
             </div>
+
+            <ul className={style["bagian-internet__list-akun"]}>
+              {listIcon.map(({ href, ikon }) => (
+                <li
+                  key={href}
+                  className={style["bagian-internet__list-item-ikon"]}
+                >
+                  <NavLink href={href}>{ikon}</NavLink>
+                </li>
+              ))}
+            </ul>
           </div>
         </motion.main>
 
         <footer className={style.footer}>
-          <div className={style.logoFooter}>
+          <div className={style["footer__logo"]}>
             <NavLink href="/">&gt; sakitkepala.dev{/* &#47; */}</NavLink>
           </div>
 
-          <div className={style.hakCipta}>
+          <div className={style["footer__hak-cipta"]}>
             {new Date().getFullYear()} &copy; Andika Priyotama Dharminto
           </div>
 
-          <div className={style.emoji}>☕</div>
+          <div className={style["footer__emoji"]}>☕</div>
         </footer>
       </div>
     </>

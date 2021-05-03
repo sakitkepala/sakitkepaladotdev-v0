@@ -13,12 +13,13 @@
   flex-direction: column;
 
   // dimensi
+  width: 100%;
   min-height: 100vh;
 
   // tipo
   font-size: 14pt;
   font-family: "DM Sans", sans-serif;
-  color: slategrey;
+  color: #002f3c;
 
   // visual
   // Background pattern dot graph paper
@@ -54,14 +55,12 @@
 }
 
 .bagian {
-  display: flex;
-
   width: 100%;
   min-height: 100vh;
 
   &-hai {
     display: grid;
-    grid-template-columns: 5em 5fr 2em 4fr 5em;
+    grid-template-columns: 5em 5fr 2em 3fr 5em;
     grid-template-rows: 4fr 3fr;
 
     &__sambut {
@@ -91,10 +90,12 @@
     &__deskripsi {
       grid-column-start: 4;
       grid-row-start: 2;
+
+      font-size: smaller;
     }
   }
 
-  .wadahTulisanPendek {
+  .heading-bagian {
     position: absolute;
     top: 1.6em;
     left: 1.6em;
@@ -105,52 +106,76 @@
     color: turquoise;
   }
 
-  &Deskripsi {
+  &-situs {
+    display: grid;
+    grid-template-columns: 1fr 420px 1fr;
+
     position: relative;
 
-    padding: 4em 0;
+    &__deskripsi {
+      grid-column-start: 2;
+      align-self: center;
 
-    .dalaman {
-      max-width: 800px;
-      margin: auto auto;
+      font-size: smaller;
+    }
+  }
 
-      .listIkon {
-        display: flex;
-        justify-content: space-between;
-        margin: 4em 0;
+  &-dika {
+    position: relative;
+  }
 
-        color: #002f3c;
+  &-internet {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-rows: 8em auto auto 8em;
 
-        list-style: none;
-      }
+    position: relative;
+
+    min-height: 100%;
+
+    &__deskripsi {
+      grid-column-start: 2;
+      grid-row-start: 2;
+    }
+
+    &__list-akun {
+      grid-column-start: 2;
+      grid-row-start: 3;
+      display: flex;
+      justify-content: space-between;
+
+      padding: 0;
+      list-style: none;
+    }
+
+    &__list-item-ikon {
+      width: 64;
+      height: 64;
     }
   }
 }
 
 .footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2em 1fr 2fr 1fr 2em;
+  grid-template-rows: 4em;
   align-items: center;
 
-  padding: 1.6em 2em;
+  &__logo {
+    grid-column-start: 2;
 
-  text-align: center;
-  color: #002f3c;
-
-  .logoFooter {
-    width: 100%;
-    font-size: 0.8em;
+    font-size: smaller;
     font-family: "Krona One", sans-serif;
     text-align: left;
   }
 
-  .hakCipta {
-    width: 100%;
+  &__hak-cipta {
     font-size: 1em;
     font-family: "DM Mono", monospace;
+    text-align: center;
   }
 
-  .emoji {
-    width: 100%;
+  &__emoji {
     text-align: right;
   }
 }
