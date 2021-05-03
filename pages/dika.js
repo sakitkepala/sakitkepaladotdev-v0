@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import name from "classnames";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
 import { IoMail } from "react-icons/io5";
 import { NavLink } from "../components/nav-link";
 
-import style from "../styles/Dika.module.scss";
+import st from "../styles/Dika.module.scss";
+import React from "react";
 
 const listIcon = [
   { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
@@ -28,6 +29,23 @@ const propsMotionTransisi = {
 };
 
 export default function HalamanDika() {
+  const refHaiDeskripsi = React.useRef(null);
+  const refBagian = React.useRef(null);
+
+  const [yBagian, setYBagian] = React.useState(null);
+  const [, setYDeskripsi] = React.useState(null);
+
+  const { scrollY } = useViewportScroll();
+  const translateY = useTransform(scrollY, [0, 300], [0, 300]);
+
+  React.useLayoutEffect(() => {
+    if (!refHaiDeskripsi.current || !refBagian.current || Boolean(yBagian)) {
+      return;
+    }
+    setYBagian(refBagian.current.getBoundingClientRect().y);
+    setYDeskripsi(refHaiDeskripsi.current.getBoundingClientRect().y);
+  }, [yBagian]);
+
   return (
     <>
       <Head>
@@ -35,8 +53,8 @@ export default function HalamanDika() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={style.halaman}>
-        <div className={style.logo}>
+      <div className={st.halaman}>
+        <motion.div className={st.logo}>
           <NavLink href="/">
             &gt; andika
             <br />
@@ -44,39 +62,43 @@ export default function HalamanDika() {
             {/* <br />
             sakitkepala.dev&#47; */}
           </NavLink>
-        </div>
+        </motion.div>
 
-        <nav className={style.navigasi}>
+        <nav className={st.navigasi}>
           <Link href="/">
-            <a className={style["navigasi__link"]}>Depan</a>
+            <a className={st["navigasi__link"]}>Depan</a>
           </Link>
           <Link href="/lab">
-            <a className={style.navigasi__link}>Lab</a>
+            <a className={st.navigasi__link}>Lab</a>
           </Link>
           <Link href="/dika">
-            <a className={style.navigasi__link}>Dika</a>
+            <a className={st.navigasi__link}>Dika</a>
           </Link>
         </nav>
 
-        <motion.main className={style.main} {...propsMotionTransisi}>
+        <motion.main className={st.main} {...propsMotionTransisi}>
           {/* konten */}
-          <div className={name(style.bagian, style["bagian-hai"])}>
-            <div className={style["bagian-hai__sambut"]}>
-              <h1 id="hai" className={style["bagian-hai__sambut-teks"]}>
+          <div className={name(st.bagian, st["bagian-hai"])}>
+            <div className={st["bagian-hai__sambut"]}>
+              <h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika" className={style.link}>
+                  <a href="#dika" className={st.link}>
                     Dika&#8601;
                   </a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
-                <span className={style.anotasi}>
+                <span className={st.anotasi}>
                   &mdash;dan <a href="#dika">software developer&#8601;</a>
                 </span>
               </h1>
             </div>
 
-            <div className={style["bagian-hai__deskripsi"]}>
+            <motion.div
+              className={st["bagian-hai__deskripsi"]}
+              ref={refHaiDeskripsi}
+              style={{ translateY }}
+            >
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
@@ -91,12 +113,12 @@ export default function HalamanDika() {
               </p>
 
               <p>Selamat datang!</p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className={name(style.bagian, style["bagian-situs"])}>
-            <div className={style["heading-bagian"]}>Tentang Situs Ini</div>
-            <div className={style["bagian-situs__deskripsi"]}>
+          <div className={name(st.bagian, st["bagian-situs"])} ref={refBagian}>
+            <div className={st["heading-bagian"]}>Tentang Situs Ini</div>
+            <div className={st["bagian-situs__deskripsi"]}>
               <p>
                 Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
                 &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
@@ -130,26 +152,26 @@ export default function HalamanDika() {
             </div>
           </div>
 
-          <div id="dika" className={name(style.bagian, style["bagian-dika"])}>
-            <div className={style["heading-bagian"]}>Tentang Dika</div>
-            <div className={style["bagian-dika__konten"]}>...</div>
+          <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
+            <div className={st["heading-bagian"]}>Tentang Dika</div>
+            <div className={st["bagian-dika__konten"]}>...</div>
           </div>
 
-          <div className={name(style.bagian, style["bagian-internet"])}>
-            <div className={style["heading-bagian"]}>Di Internet</div>
+          <div className={name(st.bagian, st["bagian-internet"])}>
+            <div className={st["heading-bagian"]}>Di Internet</div>
 
-            <div className={style["bagian-internet__deskripsi"]}>
+            <div className={st["bagian-internet__deskripsi"]}>
               <p>
                 Saya bisa ditemukan di internet lewat beberapa layanan berikut
                 meski bukan warganet media sosial yang aktif:
               </p>
             </div>
 
-            <ul className={style["bagian-internet__list-akun"]}>
+            <ul className={st["bagian-internet__list-akun"]}>
               {listIcon.map(({ href, ikon }) => (
                 <li
                   key={href}
-                  className={style["bagian-internet__list-item-ikon"]}
+                  className={st["bagian-internet__list-item-ikon"]}
                 >
                   <NavLink href={href}>{ikon}</NavLink>
                 </li>
@@ -158,16 +180,16 @@ export default function HalamanDika() {
           </div>
         </motion.main>
 
-        <footer className={style.footer}>
-          <div className={style["footer__logo"]}>
+        <footer className={st.footer}>
+          <div className={st["footer__logo"]}>
             <NavLink href="/">&gt; sakitkepala.dev{/* &#47; */}</NavLink>
           </div>
 
-          <div className={style["footer__hak-cipta"]}>
+          <div className={st["footer__hak-cipta"]}>
             {new Date().getFullYear()} &copy; Andika Priyotama Dharminto
           </div>
 
-          <div className={style["footer__emoji"]}>☕</div>
+          <div className={st["footer__emoji"]}>☕</div>
         </footer>
       </div>
     </>
