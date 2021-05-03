@@ -40,42 +40,54 @@ export default function HalamanDika() {
       </Head>
 
       <div className={st.halaman}>
-        <motion.div className={st.logo}>
-          <NavLink href="/">
-            &gt; andika
-            <br />
-            priyotama
-            {/* <br />
-            sakitkepala.dev&#47; */}
-          </NavLink>
-        </motion.div>
+        <header className={st.header}>
+          <motion.div className={st["header__logo"]}>
+            <NavLink href="/">
+              <div className={st["logo-dika"]}>
+                <span className={st["logo-dika__stack"]}>&gt; andika</span>
+                <span className={st["logo-dika__stack"]}>priyotama</span>
+              </div>
+            </NavLink>
+          </motion.div>
 
-        <nav className={st.navigasi}>
-          <Link href="/">
-            <a className={st["navigasi__link"]}>Depan</a>
-          </Link>
-          <Link href="/lab">
-            <a className={st.navigasi__link}>Lab</a>
-          </Link>
-          <Link href="/dika">
-            <a className={st.navigasi__link}>Dika</a>
-          </Link>
-        </nav>
+          <nav className={st.navigasi}>
+            <Link href="/">
+              <a className={st["navigasi__link"]}>Depan</a>
+            </Link>
+            <Link href="/lab">
+              <a className={st.navigasi__link}>Lab</a>
+            </Link>
+            <Link href="/dika">
+              <a className={st.navigasi__link}>Dika</a>
+            </Link>
+          </nav>
+        </header>
 
         <motion.main className={st.main} {...propsMotionTransisi}>
           {/* konten */}
           <div className={name(st.bagian, st["bagian-hai"])}>
             <div className={st["bagian-hai__sambut"]}>
               <h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
-                Hai! <span className="emoji-lambai">👋</span> Saya{" "}
-                <u>
-                  <a href="#dika" className={st.link}>
-                    Dika&#8601;
-                  </a>
-                </u>
-                , pengrajin pengalaman interaktif untuk web.
-                <span className={st.anotasi}>
-                  &mdash;dan <a href="#dika">software developer&#8601;</a>
+                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                  Hai! <span className="emoji-lambai">👋</span> Saya{" "}
+                  <u>
+                    <a href="#dika" className={st.link}>
+                      Dika&#8601;
+                    </a>
+                  </u>
+                  ,
+                </span>{" "}
+                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                  pengrajin pengalaman
+                </span>{" "}
+                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                  interaktif untuk web.
+                  <span className={st.anotasi}>&mdash;dan</span>
+                </span>{" "}
+                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                  <span className={st.anotasi}>
+                    <a href="#dika">software developer&#8601;</a>
+                  </span>
                 </span>
               </h1>
             </div>
