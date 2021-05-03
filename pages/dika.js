@@ -29,22 +29,8 @@ const propsMotionTransisi = {
 };
 
 export default function HalamanDika() {
-  const refHaiDeskripsi = React.useRef(null);
-  const refBagian = React.useRef(null);
-
-  const [yBagian, setYBagian] = React.useState(null);
-  const [, setYDeskripsi] = React.useState(null);
-
   const { scrollY } = useViewportScroll();
   const translateY = useTransform(scrollY, [0, 300], [0, 300]);
-
-  React.useLayoutEffect(() => {
-    if (!refHaiDeskripsi.current || !refBagian.current || Boolean(yBagian)) {
-      return;
-    }
-    setYBagian(refBagian.current.getBoundingClientRect().y);
-    setYDeskripsi(refHaiDeskripsi.current.getBoundingClientRect().y);
-  }, [yBagian]);
 
   return (
     <>
@@ -96,7 +82,6 @@ export default function HalamanDika() {
 
             <motion.div
               className={st["bagian-hai__deskripsi"]}
-              ref={refHaiDeskripsi}
               style={{ translateY }}
             >
               <p>
@@ -116,7 +101,7 @@ export default function HalamanDika() {
             </motion.div>
           </div>
 
-          <div className={name(st.bagian, st["bagian-situs"])} ref={refBagian}>
+          <div className={name(st.bagian, st["bagian-situs"])}>
             <div className={st["heading-bagian"]}>Tentang Situs Ini</div>
             <div className={st["bagian-situs__deskripsi"]}>
               <p>
