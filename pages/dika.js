@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import name from "classnames";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
 import { IoMail } from "react-icons/io5";
 import { NavLink } from "../components/nav-link";
 
-import styles from "../styles/Dika.module.scss";
+import style from "../styles/Dika.module.scss";
 
 const listIcon = [
   { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
@@ -34,8 +35,8 @@ export default function HalamanDika() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.wadahHalaman}>
-        <div className={styles.logo}>
+      <div className={style.halaman}>
+        <div className={style.logo}>
           <NavLink href="/">
             &gt; andika
             <br />
@@ -45,57 +46,57 @@ export default function HalamanDika() {
           </NavLink>
         </div>
 
-        <nav className={styles.menuNav}>
+        <nav className={style.navigasi}>
           <Link href="/">
-            <a className={styles.linkMenu}>Depan</a>
+            <a className={style["navigasi__link"]}>Depan</a>
           </Link>
           <Link href="/lab">
-            <a className={styles.linkMenu}>Lab</a>
+            <a className={style.navigasi__link}>Lab</a>
           </Link>
           <Link href="/dika">
-            <a className={styles.linkMenu}>Dika</a>
+            <a className={style.navigasi__link}>Dika</a>
           </Link>
         </nav>
 
-        <motion.main className={styles.main} {...propsMotionTransisi}>
+        <motion.main className={style.main} {...propsMotionTransisi}>
           {/* konten */}
-          <div className={styles.bagianHai}>
-            <div className={styles.dalaman}>
-              <h1 id="hai" className={styles.haiHeading}>
+          <div className={name(style.bagian, style["bagian-hai"])}>
+            <div className={style["bagian-hai__sambut"]}>
+              <h1 id="hai" className={style["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika" style={{ color: "#4361ee" }}>
+                  <a href="#dika" className={style.link}>
                     Dika&#8601;
                   </a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
-                <span className={styles.anotasi}>
+                <span className={style.anotasi}>
                   &mdash;dan <a href="#dika">software developer&#8601;</a>
                 </span>
               </h1>
+            </div>
 
-              <div className={styles.haiTulisan}>
-                <p>
-                  Ini situs web pribadi saya. Sungguh{" "}
-                  <u>
-                    <NavLink href="/lab">bukan situs portofolio</NavLink>
-                  </u>
-                  , melainkan sekedar pojokan sempitku di internet untuk{" "}
-                  <u>
-                    <NavLink href="/">bereksperimen</NavLink>
-                  </u>{" "}
-                  (<em>bermain-main?</em>) dengan teknologi antarmuka web dan
-                  juga pengalaman interaktif di <em>browser</em>.
-                </p>
+            <div className={style["bagian-hai__deskripsi"]}>
+              <p>
+                Ini situs web pribadi saya. Sungguh{" "}
+                <u>
+                  <NavLink href="/lab">bukan situs portofolio</NavLink>
+                </u>
+                , melainkan sekedar pojokan sempitku di internet untuk{" "}
+                <u>
+                  <NavLink href="/">bereksperimen</NavLink>
+                </u>{" "}
+                (<em>bermain-main?</em>) dengan teknologi antarmuka web dan juga
+                pengalaman interaktif di <em>browser</em>.
+              </p>
 
-                <p>Selamat datang!</p>
-              </div>
+              <p>Selamat datang!</p>
             </div>
           </div>
 
-          <div className={styles.bagianDeskripsi}>
-            <div className={styles.wadahTulisanPendek}>Tentang Situs Ini</div>
-            <div className={styles.dalaman}>
+          <div className={name(style.bagian, style.bagianDeskripsi)}>
+            <div className={style.wadahTulisanPendek}>Tentang Situs Ini</div>
+            <div className={style.dalaman}>
               <p>
                 Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
                 &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
@@ -129,21 +130,21 @@ export default function HalamanDika() {
             </div>
           </div>
 
-          <div id="dika" className={styles.bagianDeskripsi}>
-            <div className={styles.wadahTulisanPendek}>Tentang Dika</div>
-            <div className={styles.dalaman}>...</div>
+          <div id="dika" className={style.bagianDeskripsi}>
+            <div className={style.wadahTulisanPendek}>Tentang Dika</div>
+            <div className={style.dalaman}>...</div>
           </div>
 
-          <div className={styles.bagianDeskripsi}>
-            <div className={styles.dalaman}>
-              <div className={styles.wadahTulisanPendek}>Di Internet</div>
+          <div className={style.bagianDeskripsi}>
+            <div className={style.dalaman}>
+              <div className={style.wadahTulisanPendek}>Di Internet</div>
 
               <p>
                 Saya bisa ditemukan di internet lewat beberapa layanan berikut
                 meski bukan warganet media sosial yang aktif:
               </p>
 
-              <ul className={styles.listIkon}>
+              <ul className={style.listIkon}>
                 {listIcon.map(({ href, ikon }) => (
                   <li key={href}>
                     <div style={{ width: 64, height: 64 }}>
@@ -152,22 +153,20 @@ export default function HalamanDika() {
                   </li>
                 ))}
               </ul>
-
-              {/* <p style={{ textAlign: "center" }}>☕</p> */}
             </div>
           </div>
         </motion.main>
 
-        <footer className={styles.footer}>
-          <div className={styles.logoFooter}>
+        <footer className={style.footer}>
+          <div className={style.logoFooter}>
             <NavLink href="/">&gt; sakitkepala.dev{/* &#47; */}</NavLink>
           </div>
 
-          <div className={styles.hakCipta}>
+          <div className={style.hakCipta}>
             {new Date().getFullYear()} &copy; Andika Priyotama Dharminto
           </div>
 
-          <div className={styles.emoji}>☕</div>
+          <div className={style.emoji}>☕</div>
         </footer>
       </div>
     </>
