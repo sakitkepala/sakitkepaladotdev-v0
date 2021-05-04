@@ -271,9 +271,15 @@
   margin-bottom: 3em;
 
   &__thumb {
+    position: relative;
+
+    display: flex;
+
     height: 90px;
+    overflow: hidden;
+
+    background-color: transparent;
     border: solid #002f3c 4px;
-    background-color: white;
   }
 
   &__judul {
