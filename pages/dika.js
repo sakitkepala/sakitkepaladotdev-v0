@@ -28,9 +28,67 @@ const propsMotionTransisi = {
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
 };
 
+const bungkusH1 = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 0.6,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const tulisanH1 = {
+  hidden: { opacity: 0, translateY: "1em" },
+  show: { opacity: 1, translateY: 0, transition: { duration: 0.5 } },
+};
+
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
-  const translateY = useTransform(scrollY, [0, 300], [0, 300]);
+
+  const translateYSambut = useTransform(scrollY, [0, 260], [0, 280]);
+  const translateXSambut0 = useTransform(
+    scrollY,
+    [140 + 90, 240 + 90],
+    [0, 12]
+  );
+  const translateXSambut1 = useTransform(
+    scrollY,
+    [140 + 60, 240 + 60],
+    [0, 12]
+  );
+  const translateXSambut2 = useTransform(
+    scrollY,
+    [140 + 30, 240 + 30],
+    [0, 12]
+  );
+  const translateXSambut3 = useTransform(scrollY, [140, 240], [0, 12]);
+  const opacitySambutTeks0 = useTransform(
+    scrollY,
+    [140 + 90, 240 + 90],
+    [1, 0]
+  );
+  const opacitySambutTeks1 = useTransform(
+    scrollY,
+    [140 + 60, 240 + 60],
+    [1, 0]
+  );
+  const opacitySambutTeks2 = useTransform(
+    scrollY,
+    [140 + 30, 240 + 30],
+    [1, 0]
+  );
+  const opacitySambutTeks3 = useTransform(scrollY, [140, 240], [1, 0]);
+
+  const translateYDeskripsi = useTransform(
+    scrollY,
+    [0, 250, 250, 600],
+    [0, 250, 250, 400]
+  );
+  const opacityDeskripsi = useTransform(scrollY, [250, 580], [1, 0]);
+
+  const translateYSitus = useTransform(scrollY, [560, 800], [-30, 0]);
 
   return (
     <>
@@ -63,12 +121,27 @@ export default function HalamanDika() {
           </nav>
         </header>
 
-        <motion.main className={st.main} {...propsMotionTransisi}>
-          {/* konten */}
+        <main>
           <div className={name(st.bagian, st["bagian-hai"])}>
-            <div className={st["bagian-hai__sambut"]}>
-              <h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
-                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+            <motion.div
+              className={st["bagian-hai__sambut"]}
+              style={{ translateY: translateYSambut }}
+            >
+              <motion.h1
+                id="hai"
+                className={st["bagian-hai__sambut-teks"]}
+                variants={bungkusH1}
+                initial="hidden"
+                animate="show"
+              >
+                <motion.span
+                  className={st["bagian-hai__sambut-teks--span-animasi"]}
+                  variants={tulisanH1}
+                  style={{
+                    opacity: opacitySambutTeks0,
+                    translateY: translateXSambut0,
+                  }}
+                >
                   Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                   <u>
                     <a href="#dika" className={st.link}>
@@ -76,25 +149,49 @@ export default function HalamanDika() {
                     </a>
                   </u>
                   ,
-                </span>{" "}
-                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                </motion.span>{" "}
+                <motion.span
+                  className={st["bagian-hai__sambut-teks--span-animasi"]}
+                  variants={tulisanH1}
+                  style={{
+                    opacity: opacitySambutTeks1,
+                    translateY: translateXSambut1,
+                  }}
+                >
                   pengrajin pengalaman
-                </span>{" "}
-                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                </motion.span>{" "}
+                <motion.span
+                  className={st["bagian-hai__sambut-teks--span-animasi"]}
+                  variants={tulisanH1}
+                  style={{
+                    opacity: opacitySambutTeks2,
+                    translateY: translateXSambut2,
+                  }}
+                >
                   interaktif untuk web.
                   <span className={st.anotasi}>&mdash;dan</span>
-                </span>{" "}
-                <span className={st["bagian-hai__sambut-teks--span-animasi"]}>
+                </motion.span>{" "}
+                <motion.span
+                  className={st["bagian-hai__sambut-teks--span-animasi"]}
+                  variants={tulisanH1}
+                  style={{
+                    opacity: opacitySambutTeks3,
+                    translateY: translateXSambut3,
+                  }}
+                >
                   <span className={st.anotasi}>
                     <a href="#dika">software developer&#8601;</a>
                   </span>
-                </span>
-              </h1>
-            </div>
+                </motion.span>
+              </motion.h1>
+            </motion.div>
 
             <motion.div
               className={st["bagian-hai__deskripsi"]}
-              style={{ translateY }}
+              style={{
+                translateY: translateYDeskripsi,
+                opacity: opacityDeskripsi,
+              }}
             >
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
@@ -114,7 +211,14 @@ export default function HalamanDika() {
           </div>
 
           <div className={name(st.bagian, st["bagian-situs"])}>
-            <div className={st["heading-bagian"]}>Tentang Situs Ini</div>
+            <motion.div
+              className={st["heading-bagian"]}
+              style={{
+                translateY: translateYSitus,
+              }}
+            >
+              Tentang Situs Ini
+            </motion.div>
             <div className={st["bagian-situs__deskripsi"]}>
               <p>
                 Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
@@ -175,7 +279,7 @@ export default function HalamanDika() {
               ))}
             </ul>
           </div>
-        </motion.main>
+        </main>
 
         <footer className={st.footer}>
           <div className={st["footer__logo"]}>

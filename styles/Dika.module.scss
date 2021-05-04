@@ -122,7 +122,7 @@
   .heading-bagian {
     position: absolute;
     top: 1.6em;
-    left: 1.6em;
+    left: 2em;
 
     font-family: "DM Mono", monospace;
     font-weight: 500;
@@ -132,12 +132,14 @@
 
   &-situs {
     display: grid;
-    grid-template-columns: 1fr 420px 1fr;
+    grid-template-columns: 5em 5fr 2em 3fr 5em;
 
     position: relative;
 
+    margin-top: 12em;
+
     &__deskripsi {
-      grid-column-start: 2;
+      grid-column-start: 4;
       align-self: center;
 
       font-size: smaller;
