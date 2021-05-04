@@ -86,26 +86,26 @@ export default function HalamanLab({ listInfo }) {
               <li>
                 {/* TODO: */}
                 <article className={st["lab-artikel"]}>
-                  <NavLink href="/dika">
-                    <div
-                      className={st["lab-artikel__thumb"]}
-                      style={{
-                        borderColor: "lightsteelblue",
-                        backgroundColor: "transparent",
-                      }}
-                    >
-                      <img />
-                    </div>
-                  </NavLink>
+                  {/* <NavLink href="/dika"> */}
+                  <div
+                    className={st["lab-artikel__thumb"]}
+                    style={{
+                      borderColor: "lightsteelblue",
+                      backgroundColor: "transparent",
+                    }}
+                  >
+                    <img />
+                  </div>
+                  {/* </NavLink> */}
 
-                  <NavLink href="/dika">
-                    <h2
-                      className={st["lab-artikel__judul"]}
-                      style={{ color: "lightsteelblue" }}
-                    >
-                      ...to be developed
-                    </h2>
-                  </NavLink>
+                  {/* <NavLink href="/dika"> */}
+                  <h2
+                    className={st["lab-artikel__judul"]}
+                    style={{ color: "lightsteelblue" }}
+                  >
+                    ...to be developed
+                  </h2>
+                  {/* </NavLink> */}
                 </article>
               </li>
             </ul>
@@ -127,14 +127,22 @@ export default function HalamanLab({ listInfo }) {
               <li>
                 <article className={st["lab-artikel"]}>
                   <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
-                    <div className={st["lab-artikel__thumb"]}>
-                      <img />
-                    </div>
+                    <div
+                      className={st["lab-artikel__thumb"]}
+                      style={{
+                        backgroundImage: "url(/wkwkbudgetapp.jpg)",
+                        backgroundSize: "cover",
+                        backgroundPositionX: "center",
+                        backgroundPositionY: "65%",
+                      }}
+                    />
                   </NavLink>
 
-                  <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
-                    <h2 className={st["lab-artikel__judul"]}>Budgeting App</h2>
-                  </NavLink>
+                  <h2 className={st["lab-artikel__judul"]}>
+                    <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
+                      Budgeting App &#40;WIP&#41;
+                    </NavLink>
+                  </h2>
                 </article>
               </li>
             </ul>
