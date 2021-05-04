@@ -120,9 +120,12 @@
   }
 
   .heading-bagian {
+    // temporary
+    display: none;
+
     position: absolute;
-    top: 1.6em;
-    left: 2em;
+    top: 1.2em;
+    left: 5em;
 
     font-family: "DM Mono", monospace;
     font-weight: 500;
@@ -148,6 +151,42 @@
 
   &-dika {
     position: relative;
+
+    // min-height: auto;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    margin-top: 8em;
+
+    &__penampakan {
+      position: relative;
+
+      grid-column-start: 2;
+
+      width: 400px;
+      height: 400px;
+      margin: 0;
+
+      overflow: hidden;
+      clip-path: circle(50%);
+    }
+
+    &__img-dika {
+      // width: 400px;
+      // height: 400px;
+      transform: translate(-5px, -100px);
+    }
+
+    &__penampakan::after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400px;
+      height: 400px;
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
 
   &-internet {
@@ -157,6 +196,7 @@
 
     position: relative;
 
+    margin-top: 44em;
     min-height: 100%;
 
     &__deskripsi {
@@ -196,7 +236,7 @@
   }
 
   &__hak-cipta {
-    font-size: 1em;
+    font-size: small;
     font-family: "DM Mono", monospace;
     text-align: center;
   }

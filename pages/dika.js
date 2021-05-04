@@ -88,7 +88,22 @@ export default function HalamanDika() {
   );
   const opacityDeskripsi = useTransform(scrollY, [250, 580], [1, 0]);
 
-  const translateYSitus = useTransform(scrollY, [560, 800], [-30, 0]);
+  const translateYHeadingSitus = useTransform(scrollY, [560, 1200], [0, 360]);
+
+  const translateYDeskripsiSitus = useTransform(scrollY, [890, 1040], [0, 150]);
+  const opacityDeskripsiSitus = useTransform(scrollY, [1000, 1200], [1, 0]);
+
+  const translateYFotoDika = useTransform(
+    scrollY,
+    [1170, 1670, 1970, 2270, 2470],
+    [0, 500, 660, 690, 890]
+  );
+  const scaleFotoDika = useTransform(
+    scrollY,
+    [2400, 2450, 2800, 3100],
+    [1, 0.85, 1.5, 2.4]
+  );
+  const opacityFotoDika = useTransform(scrollY, [2600, 2680], [1, 0]);
 
   return (
     <>
@@ -214,12 +229,19 @@ export default function HalamanDika() {
             <motion.div
               className={st["heading-bagian"]}
               style={{
-                translateY: translateYSitus,
+                translateY: translateYHeadingSitus,
               }}
             >
               Tentang Situs Ini
             </motion.div>
-            <div className={st["bagian-situs__deskripsi"]}>
+
+            <motion.div
+              className={st["bagian-situs__deskripsi"]}
+              style={{
+                translateY: translateYDeskripsiSitus,
+                opacity: opacityDeskripsiSitus,
+              }}
+            >
               <p>
                 Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
                 &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
@@ -250,12 +272,26 @@ export default function HalamanDika() {
               </p>
 
               <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
-            </div>
+            </motion.div>
           </div>
 
           <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
             <div className={st["heading-bagian"]}>Tentang Dika</div>
-            <div className={st["bagian-dika__konten"]}>...</div>
+
+            <motion.figure
+              className={st["bagian-dika__penampakan"]}
+              style={{
+                translateY: translateYFotoDika,
+                scale: scaleFotoDika,
+                opacity: opacityFotoDika,
+              }}
+            >
+              <img
+                className={st["bagian-dika__img-dika"]}
+                src="/foto-dika.jpg"
+                alt="Foto Dika"
+              />
+            </motion.figure>
           </div>
 
           <div className={name(st.bagian, st["bagian-internet"])}>
@@ -263,8 +299,9 @@ export default function HalamanDika() {
 
             <div className={st["bagian-internet__deskripsi"]}>
               <p>
-                Saya bisa ditemukan di internet lewat beberapa layanan berikut
-                meski bukan warganet media sosial yang aktif:
+                Saya bisa ditemukan<span>&#42;</span> di internet lewat beberapa
+                layanan berikut :<br />
+                <span>&#42;</span>meskipun tidak begitu aktif media sosial
               </p>
             </div>
 
@@ -283,14 +320,16 @@ export default function HalamanDika() {
 
         <footer className={st.footer}>
           <div className={st["footer__logo"]}>
-            <NavLink href="/">&gt; sakitkepala.dev{/* &#47; */}</NavLink>
+            <NavLink href="/">&#47; Eksperimennya Dika{/* &#47; */}</NavLink>
           </div>
 
           <div className={st["footer__hak-cipta"]}>
-            {new Date().getFullYear()} &copy; Andika Priyotama Dharminto
+            {new Date().getFullYear()} {/* &copy; */}
+            <span style={{ fontSize: "1.6em" }}>☕&#10157;</span> Andika
+            Priyotama D.
           </div>
 
-          <div className={st["footer__emoji"]}>☕</div>
+          {/* <div className={st["footer__emoji"]}>☕</div> */}
         </footer>
       </div>
     </>
