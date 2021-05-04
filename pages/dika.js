@@ -24,7 +24,7 @@ const listIcon = [
 ];
 
 const propsMotionTransisi = {
-  initial: { opacity: 0, translateY: 2 },
+  initial: { opacity: 0, translateY: 20 },
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
 };
 
@@ -33,7 +33,6 @@ const bungkusH1 = {
   show: {
     opacity: 1,
     transition: {
-      delay: 0.6,
       staggerChildren: 0.2,
     },
   },
@@ -41,7 +40,19 @@ const bungkusH1 = {
 
 const tulisanH1 = {
   hidden: { opacity: 0, translateY: "1em" },
-  show: { opacity: 1, translateY: 0, transition: { duration: 0.5 } },
+  show: {
+    opacity: 1,
+    translateY: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
+const tulisanDeskripsi = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { delay: 1, duration: 0.25 },
+  },
 };
 
 export default function HalamanDika() {
@@ -137,7 +148,7 @@ export default function HalamanDika() {
           </nav>
         </header>
 
-        <main>
+        <motion.main {...propsMotionTransisi}>
           <div className={name(st.bagian, st["bagian-hai"])}>
             <motion.div
               className={st["bagian-hai__sambut"]}
@@ -204,6 +215,9 @@ export default function HalamanDika() {
 
             <motion.div
               className={st["bagian-hai__deskripsi"]}
+              variants={tulisanDeskripsi}
+              initial="hidden"
+              animate="show"
               style={{
                 translateY: translateYDeskripsi,
                 opacity: opacityDeskripsi,
@@ -322,7 +336,7 @@ export default function HalamanDika() {
               ))}
             </ul>
           </div>
-        </main>
+        </motion.main>
 
         <footer className={st.footer}>
           <div className={st["footer__logo"]}>

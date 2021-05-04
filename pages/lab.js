@@ -25,8 +25,8 @@ function ListItemEksperimen({ info }) {
 }
 
 const propsMotionTransisi = {
-  initial: { opacity: 0, translateX: 20 },
-  animate: { opacity: 1, translateX: 0 },
+  initial: { opacity: 0, translateY: 20 },
+  animate: { opacity: 1, translateY: 0 },
 };
 
 export default function HalamanLab({ listInfo }) {
