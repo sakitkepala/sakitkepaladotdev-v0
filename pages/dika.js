@@ -88,7 +88,8 @@ export default function HalamanDika() {
   );
   const opacityDeskripsi = useTransform(scrollY, [250, 580], [1, 0]);
 
-  const translateYHeadingSitus = useTransform(scrollY, [560, 1200], [0, 360]);
+  const translateYHeadingSitus = useTransform(scrollY, [560, 1400], [0, 760]);
+  const opacityHeadingSitus = useTransform(scrollY, [1000, 1200], [1, 0]);
 
   const translateYDeskripsiSitus = useTransform(scrollY, [890, 1040], [0, 150]);
   const opacityDeskripsiSitus = useTransform(scrollY, [1000, 1200], [1, 0]);
@@ -230,6 +231,7 @@ export default function HalamanDika() {
               className={st["heading-bagian"]}
               style={{
                 translateY: translateYHeadingSitus,
+                opacity: opacityHeadingSitus,
               }}
             >
               Tentang Situs Ini
@@ -281,7 +283,7 @@ export default function HalamanDika() {
           </div>
 
           <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
-            <div className={st["heading-bagian"]}>Tentang Dika</div>
+            {/* <div className={st["heading-bagian"]}>Tentang Dika</div> */}
 
             <motion.figure
               className={st["bagian-dika__penampakan"]}
