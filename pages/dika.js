@@ -243,10 +243,10 @@ export default function HalamanDika() {
               }}
             >
               <p>
-                Situs ini masih <em>work in progress</em> dan saya anggap akan{" "}
-                &#42;selalu&#42; <em>work in progress</em>, dimana saya akan
-                membuat antarmuka eksperimental untuk halaman-halaman situs ini
-                sebagai projek yang berkelanjutan.
+                Situs ini masih <em>work in progress</em>&#42; dan saya anggap
+                akan <strong>selalu</strong> <em>work in progress</em>, dimana
+                saya akan membuat antarmuka eksperimental untuk halaman-halaman
+                situs ini sebagai projek yang berkelanjutan.
               </p>
 
               <p>
@@ -272,6 +272,11 @@ export default function HalamanDika() {
               </p>
 
               <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
+
+              <p style={{ marginTop: "2em", fontSize: "small" }}>
+                &#42; perhatikan animasi <em>scrolling</em> &amp; layout
+                responsifnya masih ambyar 😆
+              </p>
             </motion.div>
           </div>
 
@@ -294,14 +299,13 @@ export default function HalamanDika() {
             </motion.figure>
           </div>
 
-          <div className={name(st.bagian, st["bagian-internet"])}>
+          <div id="sosial" className={name(st.bagian, st["bagian-internet"])}>
             <div className={st["heading-bagian"]}>Di Internet</div>
 
             <div className={st["bagian-internet__deskripsi"]}>
               <p>
-                Saya bisa ditemukan<span>&#42;</span> di internet lewat beberapa
-                layanan berikut :<br />
-                <span>&#42;</span>meskipun tidak begitu aktif media sosial
+                Meskipun tidak begitu aktif main media sosial, saya masih bisa
+                ditemui di internet lewat beberapa layanan berikut:
               </p>
             </div>
 
@@ -328,8 +332,6 @@ export default function HalamanDika() {
             <span style={{ fontSize: "1.6em" }}>☕&#10157;</span> Andika
             Priyotama D.
           </div>
-
-          {/* <div className={st["footer__emoji"]}>☕</div> */}
         </footer>
       </div>
     </>
