@@ -218,6 +218,42 @@
   }
 }
 
+.bagian-lab {
+  display: grid;
+  grid-template-columns: 8em 4fr 2em 3fr 5em;
+  grid-template-rows: 12em auto 4em auto 8em;
+
+  &__deskripsi--eksperimen {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  &__list-eksperimen {
+    grid-column-start: 4;
+    grid-row-start: 2;
+  }
+
+  &__deskripsi--projek {
+    grid-column-start: 2;
+    grid-row-start: 4;
+  }
+
+  &__list-projek {
+    grid-column-start: 4;
+    grid-row-start: 4;
+  }
+
+  &__heading-deskripsi {
+    margin-top: 0;
+
+    font-family: "Krona One", sans-serif;
+    font-weight: normal;
+    font-size: 2em;
+
+    color: #002f3c;
+  }
+}
+
 .footer {
   display: grid;
   grid-template-columns: 2em 1fr 2fr 1fr 2em;
