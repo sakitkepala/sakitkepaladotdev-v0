@@ -10,24 +10,17 @@ import st from "../styles/Dika.module.scss";
 function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
   return (
-    <div className="eksperimen-item">
-      <div className="eksperimen-entri">
-        <NavLink href={`/lab/eksperimen/${repo}`}>
-          {/* TODO: styling, jangan pake nbsp wkwk */}
-          {tanggal}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &rarr; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <u>{judul}</u>
-        </NavLink>
-      </div>
-      {!source ? null : (
-        <pre className="eksperimen-source">
-          [src]{" "}
-          <NavLink href={source}>
-            <u>{source}</u>
-          </NavLink>
-        </pre>
-      )}
-    </div>
+    <article className={st["lab-artikel"]}>
+      <NavLink href={`/lab/eksperimen/${repo}`}>
+        <div className={st["lab-artikel__thumb"]}>
+          <img />
+        </div>
+      </NavLink>
+
+      <NavLink href={`/lab/eksperimen/${repo}`}>
+        <h2 className={st["lab-artikel__judul"]}>{judul}</h2>
+      </NavLink>
+    </article>
   );
 }
 
@@ -76,18 +69,45 @@ export default function HalamanLab({ listInfo }) {
                 st["bagian-lab__deskripsi--eksperimen"]
               )}
             >
-              <h1 className={st["bagian-lab__heading-deskripsi"]}>
+              <h1
+                className={st["bagian-lab__heading-deskripsi"]}
+                style={{ color: "lightsteelblue" }}
+              >
                 Eksperimen
               </h1>
-              <p>Koleksi eksperimen-eksperimen...</p>
+
+              <p className={st["bagian-lab__tulisan-deskripsi"]}>
+                {/* TODO: */}
+                <em style={{ color: "lightsteelblue" }}>...to be developed</em>
+              </p>
             </div>
 
             <ul className={st["bagian-lab__list-eksperimen"]}>
-              {listInfo.map((eksperimen) => (
-                <li key={eksperimen.id}>
-                  <ListItemEksperimen info={eksperimen} />
-                </li>
-              ))}
+              <li>
+                {/* TODO: */}
+                <article className={st["lab-artikel"]}>
+                  <NavLink href="/dika">
+                    <div
+                      className={st["lab-artikel__thumb"]}
+                      style={{
+                        borderColor: "lightsteelblue",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      <img />
+                    </div>
+                  </NavLink>
+
+                  <NavLink href="/dika">
+                    <h2
+                      className={st["lab-artikel__judul"]}
+                      style={{ color: "lightsteelblue" }}
+                    >
+                      ...to be developed
+                    </h2>
+                  </NavLink>
+                </article>
+              </li>
             </ul>
 
             <div
@@ -97,10 +117,27 @@ export default function HalamanLab({ listInfo }) {
               )}
             >
               <h1 className={st["bagian-lab__heading-deskripsi"]}>Projek</h1>
-              <p>Koleksi eksperimen-eksperimen...</p>
+
+              <p className={st["bagian-lab__tulisan-deskripsi"]}>
+                Projek-projek menarik yang mau kucoba.
+              </p>
             </div>
 
-            <div className={st["bagian-lab__list-projek"]}>...</div>
+            <ul className={st["bagian-lab__list-projek"]}>
+              <li>
+                <article className={st["lab-artikel"]}>
+                  <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
+                    <div className={st["lab-artikel__thumb"]}>
+                      <img />
+                    </div>
+                  </NavLink>
+
+                  <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
+                    <h2 className={st["lab-artikel__judul"]}>Budgeting App</h2>
+                  </NavLink>
+                </article>
+              </li>
+            </ul>
           </div>
         </motion.main>
 
