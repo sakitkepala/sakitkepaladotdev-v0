@@ -90,23 +90,6 @@
   grid-template-rows: 1.2em auto;
 
   width: 100%;
-
-  .navigasi {
-    grid-column: 5;
-    grid-row: 2;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    font-family: "Krona One", sans-serif;
-    color: #002f3c;
-
-    &__link {
-      margin-left: 2em;
-      font-size: smaller;
-    }
-  }
 }
 
 .bagian {

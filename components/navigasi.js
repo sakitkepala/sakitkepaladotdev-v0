@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-import st from "../styles/Dika.module.scss";
+import styles from "../styles/MenuNavigasi.module.scss";
 
 function MenuNavigasi() {
   return (
-    <nav className={st.navigasi}>
+    <nav className={styles.bungkus}>
       <Link href="/">
-        <a className={st["navigasi__link"]}>Depan</a>
+        <a className={styles["link"]}>Depan</a>
       </Link>
       <Link href="/lab">
-        <a className={st.navigasi__link}>Lab</a>
+        <a className={styles.link}>Lab</a>
       </Link>
       <Link href="/dika">
-        <a className={st.navigasi__link}>Dika</a>
+        <a className={styles.link}>Dika</a>
       </Link>
     </nav>
   );
