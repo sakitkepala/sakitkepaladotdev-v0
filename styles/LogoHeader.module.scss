@@ -1,0 +1,17 @@
+.bungkus {
+  grid-column: 2 / 3;
+  grid-row-start: 2;
+
+  .logoteks {
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Krona One", sans-serif;
+    color: #4361ee;
+
+    .stack {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+}

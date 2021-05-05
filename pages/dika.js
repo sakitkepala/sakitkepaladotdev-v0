@@ -1,12 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
-import name from "classnames";
-import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
-import { IoMail } from "react-icons/io5";
-import { NavLink } from "../components/nav-link";
+import { LogoHeader } from "../components/logo-header";
 import { MenuNavigasi } from "../components/navigasi";
+import { NavLink } from "../components/nav-link";
 
+import { IoMail } from "react-icons/io5";
+import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
+import name from "classnames";
 import st from "../styles/Dika.module.scss";
 
 const listIcon = [
@@ -126,15 +127,7 @@ export default function HalamanDika() {
 
       <div className={st.halaman}>
         <header className={st.header}>
-          <motion.div className={st["header__logo"]}>
-            <NavLink href="/">
-              <div className={st["logo-dika"]}>
-                <span className={st["logo-dika__stack"]}>&gt; andika</span>
-                <span className={st["logo-dika__stack"]}>priyotama</span>
-              </div>
-            </NavLink>
-          </motion.div>
-
+          <LogoHeader />
           <MenuNavigasi />
         </header>
 

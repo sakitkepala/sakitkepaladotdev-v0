@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { NavLink } from "../components/nav-link";
-import name from "classnames";
 import { motion } from "framer-motion";
 import { getTerbaru } from "../lib/api/eksperimen";
+import { LogoHeader } from "../components/logo-header";
 import { MenuNavigasi } from "../components/navigasi";
 
+import name from "classnames";
 import st from "../styles/Dika.module.scss";
 
 export async function getStaticProps() {
@@ -32,15 +33,7 @@ export default function HalamanDepan({ eksperimen }) {
 
       <div className={st["halaman-depan-dummy"]}>
         <header className={st.header}>
-          <motion.div className={st["header__logo"]}>
-            <NavLink href="/">
-              <div className={st["logo-dika"]}>
-                <span className={st["logo-dika__stack"]}>&gt; andika</span>
-                <span className={st["logo-dika__stack"]}>priyotama</span>
-              </div>
-            </NavLink>
-          </motion.div>
-
+          <LogoHeader />
           <MenuNavigasi />
         </header>
 

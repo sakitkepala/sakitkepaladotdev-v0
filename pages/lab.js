@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
-import name from "classnames";
 import { getSemuaSortir } from "../lib/api/eksperimen";
-import { NavLink } from "../components/nav-link";
+import { LogoHeader } from "../components/logo-header";
 import { MenuNavigasi } from "../components/navigasi";
+import { NavLink } from "../components/nav-link";
 
+import name from "classnames";
 import st from "../styles/Dika.module.scss";
 
 function ListItemEksperimen({ info }) {
@@ -39,15 +40,7 @@ export default function HalamanLab({ listInfo }) {
 
       <div className={st.halaman}>
         <header className={st.header}>
-          <motion.div className={st["header__logo"]}>
-            <NavLink href="/">
-              <div className={st["logo-dika"]}>
-                <span className={st["logo-dika__stack"]}>&gt; andika</span>
-                <span className={st["logo-dika__stack"]}>priyotama</span>
-              </div>
-            </NavLink>
-          </motion.div>
-
+          <LogoHeader />
           <MenuNavigasi />
         </header>
 
