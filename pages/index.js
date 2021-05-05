@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { NavLink } from "../components/nav-link";
-import Link from "next/link";
 import name from "classnames";
 import { motion } from "framer-motion";
 import { getTerbaru } from "../lib/api/eksperimen";
+import { MenuNavigasi } from "../components/navigasi";
 
 import st from "../styles/Dika.module.scss";
 
@@ -41,17 +41,7 @@ export default function HalamanDepan({ eksperimen }) {
             </NavLink>
           </motion.div>
 
-          <nav className={st.navigasi}>
-            <Link href="/">
-              <a className={st["navigasi__link"]}>Depan</a>
-            </Link>
-            <Link href="/lab">
-              <a className={st.navigasi__link}>Lab</a>
-            </Link>
-            <Link href="/dika">
-              <a className={st.navigasi__link}>Dika</a>
-            </Link>
-          </nav>
+          <MenuNavigasi />
         </header>
 
         <motion.main className={st["main-dummy"]} {...propsMotionTransisi}>
