@@ -8,7 +8,7 @@ import { NavLink } from "../components/nav-link";
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
 import name from "classnames";
-import st from "../styles/Dika.module.scss";
+import st from "../styles/dika.module.scss";
 
 const listIcon = [
   { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
@@ -58,65 +58,8 @@ const tulisanDeskripsi = {
 
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
-
-  const translateYSambut = useTransform(scrollY, [0, 260], [0, 280]);
-  const translateXSambut0 = useTransform(
-    scrollY,
-    [140 + 90, 240 + 90],
-    [0, 12]
-  );
-  const translateXSambut1 = useTransform(
-    scrollY,
-    [140 + 60, 240 + 60],
-    [0, 12]
-  );
-  const translateXSambut2 = useTransform(
-    scrollY,
-    [140 + 30, 240 + 30],
-    [0, 12]
-  );
-  const translateXSambut3 = useTransform(scrollY, [140, 240], [0, 12]);
-  const opacitySambutTeks0 = useTransform(
-    scrollY,
-    [140 + 90, 240 + 90],
-    [1, 0]
-  );
-  const opacitySambutTeks1 = useTransform(
-    scrollY,
-    [140 + 60, 240 + 60],
-    [1, 0]
-  );
-  const opacitySambutTeks2 = useTransform(
-    scrollY,
-    [140 + 30, 240 + 30],
-    [1, 0]
-  );
-  const opacitySambutTeks3 = useTransform(scrollY, [140, 240], [1, 0]);
-
-  const translateYDeskripsi = useTransform(
-    scrollY,
-    [0, 250, 250, 600],
-    [0, 250, 250, 400]
-  );
-  const opacityDeskripsi = useTransform(scrollY, [250, 580], [1, 0]);
-
-  const translateYHeadingSitus = useTransform(scrollY, [560, 1400], [0, 760]);
-  const opacityHeadingSitus = useTransform(scrollY, [1000, 1200], [1, 0]);
-
-  const translateYDeskripsiSitus = useTransform(scrollY, [890, 1040], [0, 150]);
-  const opacityDeskripsiSitus = useTransform(scrollY, [1000, 1200], [1, 0]);
-
-  const translateYFotoDika = useTransform(
-    scrollY,
-    [1170, 1670, 1970, 2270, 2470],
-    [0, 500, 660, 690, 890]
-  );
-  const scaleFotoDika = useTransform(
-    scrollY,
-    [2400, 2450, 2800, 3100],
-    [1, 0.85, 1.5, 2.4]
-  );
-  const opacityFotoDika = useTransform(scrollY, [2600, 2680], [1, 0]);
+  // logika transform scroll
+  // ...
 
   return (
     <>
@@ -132,25 +75,11 @@ export default function HalamanDika() {
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <div className={name(st.bagian, st["bagian-hai"])}>
-            <motion.div
-              className={st["bagian-hai__sambut"]}
-              style={{ translateY: translateYSambut }}
-            >
-              <motion.h1
-                id="hai"
-                className={st["bagian-hai__sambut-teks"]}
-                variants={bungkusH1}
-                initial="hidden"
-                animate="show"
-              >
+          <div className={st["bagian-hai"]}>
+            <motion.div className={st["bagian-hai__sambut"]}>
+              <motion.h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
                 <motion.span
                   className={st["bagian-hai__sambut-teks--span-animasi"]}
-                  variants={tulisanH1}
-                  style={{
-                    opacity: opacitySambutTeks0,
-                    translateY: translateXSambut0,
-                  }}
                 >
                   Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                   <u>
@@ -163,20 +92,12 @@ export default function HalamanDika() {
                 <motion.span
                   className={st["bagian-hai__sambut-teks--span-animasi"]}
                   variants={tulisanH1}
-                  style={{
-                    opacity: opacitySambutTeks1,
-                    translateY: translateXSambut1,
-                  }}
                 >
                   pengrajin pengalaman
                 </motion.span>{" "}
                 <motion.span
                   className={st["bagian-hai__sambut-teks--span-animasi"]}
                   variants={tulisanH1}
-                  style={{
-                    opacity: opacitySambutTeks2,
-                    translateY: translateXSambut2,
-                  }}
                 >
                   interaktif untuk web.
                   <span className={st.anotasi}>&mdash;dan</span>
@@ -184,10 +105,6 @@ export default function HalamanDika() {
                 <motion.span
                   className={st["bagian-hai__sambut-teks--span-animasi"]}
                   variants={tulisanH1}
-                  style={{
-                    opacity: opacitySambutTeks3,
-                    translateY: translateXSambut3,
-                  }}
                 >
                   <span className={st.anotasi}>
                     <a href="#dika">software developer&#8601;</a>
@@ -196,16 +113,7 @@ export default function HalamanDika() {
               </motion.h1>
             </motion.div>
 
-            <motion.div
-              className={st["bagian-hai__deskripsi"]}
-              variants={tulisanDeskripsi}
-              initial="hidden"
-              animate="show"
-              style={{
-                translateY: translateYDeskripsi,
-                opacity: opacityDeskripsi,
-              }}
-            >
+            <motion.div className={st["bagian-hai__deskripsi"]}>
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
@@ -224,23 +132,11 @@ export default function HalamanDika() {
           </div>
 
           <div className={name(st.bagian, st["bagian-situs"])}>
-            <motion.div
-              className={st["heading-bagian"]}
-              style={{
-                translateY: translateYHeadingSitus,
-                opacity: opacityHeadingSitus,
-              }}
-            >
+            <motion.div className={st["heading-bagian"]}>
               Tentang Situs Ini
             </motion.div>
 
-            <motion.div
-              className={st["bagian-situs__deskripsi"]}
-              style={{
-                translateY: translateYDeskripsiSitus,
-                opacity: opacityDeskripsiSitus,
-              }}
-            >
+            <motion.div className={st["bagian-situs__deskripsi"]}>
               <p>
                 Situs ini masih <em>work in progress</em>&#42; dan saya anggap
                 akan <strong>selalu</strong> <em>work in progress</em>, dimana
@@ -272,33 +168,24 @@ export default function HalamanDika() {
 
               <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
-              <p style={{ marginTop: "2em", fontSize: "small" }}>
+              <p>
                 &#42; perhatikan animasi <em>scrolling</em> &amp; layout
                 responsifnya masih ambyar 😆
               </p>
             </motion.div>
           </div>
 
-          <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
-            {/* <div className={st["heading-bagian"]}>Tentang Dika</div> */}
-
-            <motion.figure
-              className={st["bagian-dika__penampakan"]}
-              style={{
-                translateY: translateYFotoDika,
-                scale: scaleFotoDika,
-                opacity: opacityFotoDika,
-              }}
-            >
+          {/* <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
+            <motion.figure className={st["bagian-dika__penampakan"]}>
               <img
                 className={st["bagian-dika__img-dika"]}
                 src="/foto-dika.jpg"
                 alt="Foto Dika"
               />
             </motion.figure>
-          </div>
+          </div> */}
 
-          <div id="sosial" className={name(st.bagian, st["bagian-internet"])}>
+          {/* <div id="sosial" className={name(st.bagian, st["bagian-internet"])}>
             <div className={st["heading-bagian"]}>Di Internet</div>
 
             <div className={st["bagian-internet__deskripsi"]}>
@@ -318,7 +205,7 @@ export default function HalamanDika() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </motion.main>
 
         <footer className={st.footer}>
@@ -328,8 +215,7 @@ export default function HalamanDika() {
 
           <div className={st["footer__hak-cipta"]}>
             {new Date().getFullYear()} {/* &copy; */}
-            <span style={{ fontSize: "1.6em" }}>☕&#10157;</span> Andika
-            Priyotama D.
+            <span>☕&#10157;</span> Andika Priyotama D.
           </div>
         </footer>
       </div>
