@@ -29,28 +29,32 @@
 }
 
 .bagian-hai {
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  column-gap: 90px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: stretch;
+  min-height: 100vh;
+  margin: 0 90px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0 60px;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 42px;
+  }
 
   &__sambut {
-    flex: 5;
     align-self: center;
 
     min-width: 280px;
-    margin-left: 90px;
 
     @media (max-width: 800px) {
-      flex: 1 1 100%;
-      align-self: flex-end;
-      margin: 0 60px;
+      align-self: end;
     }
 
     @media (max-width: 600px) {
-      margin: 0 42px;
       font-size: small;
     }
   }
@@ -58,7 +62,7 @@
   &__sambut-teks {
     font-family: "Krona One", sans-serif;
     font-weight: normal;
-    font-size: 2em;
+    font-size: 36px;
 
     color: #002f3c;
 
@@ -76,56 +80,74 @@
   }
 
   &__deskripsi {
-    flex: 3;
-    align-self: flex-end;
-
+    align-self: end;
     min-width: 280px;
-    margin: 0 90px 72px 30px;
-
-    font-size: smaller;
+    margin-bottom: 42px;
+    font-size: 18px;
+    font-kerning: 10px;
 
     @media (max-width: 800px) {
-      flex: 1 1 100%;
-      align-self: flex-start;
-      margin: 0 60px;
+      align-self: start;
+      font-size: 18px;
     }
 
-    @media (max-width: 600px) {
-      margin: 0 42px;
+    .selamatDatang {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
 }
 
-.bagian {
-  width: 100%;
-  min-height: 100vh;
+.bagian-situs {
+  position: relative;
 
-  .heading-bagian {
-    position: absolute;
-    top: 1.2em;
-    left: 2em;
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  column-gap: 30px;
 
-    font-family: "DM Mono", monospace;
-    font-weight: 500;
+  margin: 0 90px;
+  margin-top: 12em;
 
-    color: turquoise;
+  background-color: rgba(0, 255, 255, 0.445);
+
+  @media (max-width: 800px) {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  &-situs {
-    display: grid;
-    grid-template-columns: 5em 5fr 2em 3fr 5em;
-
-    position: relative;
-
+  @media (max-width: 600px) {
+    margin: 0 30px;
     margin-top: 12em;
+  }
 
-    &__deskripsi {
-      grid-column-start: 4;
-      align-self: center;
+  margin-top: 12em;
 
-      font-size: smaller;
+  &__deskripsi {
+    grid-column-start: 2;
+    min-width: 270px;
+    font-size: smaller;
+
+    @media (max-width: 800px) {
+      grid-column-start: 1;
     }
   }
+}
+
+.heading-bagian {
+  display: none;
+  position: absolute;
+  top: 1.2em;
+  left: 2em;
+
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+
+  color: turquoise;
+}
+
+.bagian {
+  width: 100%;
+  // min-height: 100vh;
 
   &-dika {
     position: relative;

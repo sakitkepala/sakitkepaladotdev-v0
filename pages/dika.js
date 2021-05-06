@@ -78,38 +78,17 @@ export default function HalamanDika() {
           <div className={st["bagian-hai"]}>
             <motion.div className={st["bagian-hai__sambut"]}>
               <motion.h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
-                <motion.span
-                  className={st["bagian-hai__sambut-teks--span-animasi"]}
-                >
-                  Hai! <span className="emoji-lambai">👋</span> Saya{" "}
-                  <u>
-                    <a href="#dika" className={st.link}>
-                      Dika&#8601;
-                    </a>
-                  </u>
-                  ,
-                </motion.span>{" "}
-                <motion.span
-                  className={st["bagian-hai__sambut-teks--span-animasi"]}
-                  variants={tulisanH1}
-                >
-                  pengrajin pengalaman
-                </motion.span>{" "}
-                <motion.span
-                  className={st["bagian-hai__sambut-teks--span-animasi"]}
-                  variants={tulisanH1}
-                >
-                  interaktif untuk web.
-                  <span className={st.anotasi}>&mdash;dan</span>
-                </motion.span>{" "}
-                <motion.span
-                  className={st["bagian-hai__sambut-teks--span-animasi"]}
-                  variants={tulisanH1}
-                >
-                  <span className={st.anotasi}>
-                    <a href="#dika">software developer&#8601;</a>
-                  </span>
-                </motion.span>
+                Hai! <span className="emoji-lambai">👋</span> Saya{" "}
+                <u>
+                  <a href="#dika" className={st.link}>
+                    Dika&#8601;
+                  </a>
+                </u>
+                , pengrajin pengalaman interaktif untuk web.
+                <span className={st.anotasi}>&mdash;dan</span>{" "}
+                <span className={st.anotasi}>
+                  <a href="#dika">software developer&#8601;</a>
+                </span>
               </motion.h1>
             </motion.div>
 
@@ -127,11 +106,11 @@ export default function HalamanDika() {
                 pengalaman interaktif di <em>browser</em>.
               </p>
 
-              <p>Selamat datang!</p>
+              <p className={st.selamatDatang}>Selamat datang!</p>
             </motion.div>
           </div>
 
-          <div className={name(st.bagian, st["bagian-situs"])}>
+          <div className={st["bagian-situs"]}>
             <motion.div className={st["heading-bagian"]}>
               Tentang Situs Ini
             </motion.div>
