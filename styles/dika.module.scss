@@ -49,6 +49,7 @@
     align-self: center;
 
     min-width: 280px;
+    background-color: ghostwhite;
 
     @media (max-width: 800px) {
       align-self: end;
@@ -82,12 +83,15 @@
   &__deskripsi {
     align-self: end;
     min-width: 280px;
+    margin-right: 42px;
     margin-bottom: 42px;
     font-size: 18px;
-    font-kerning: 10px;
+    color: #384346;
+    background-color: ghostwhite;
 
     @media (max-width: 800px) {
       align-self: start;
+      margin-right: 0;
       font-size: 18px;
     }
 
@@ -95,6 +99,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: #002f3c;
     }
   }
 }
