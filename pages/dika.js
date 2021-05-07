@@ -7,21 +7,24 @@ import { NavLink } from "../components/nav-link";
 
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
-import name from "classnames";
+import classname from "classnames";
 import styles from "../styles/dika.module.scss";
 
 const listIcon = [
-  { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
+  { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="100%" /> },
   {
     href: "https://linkedin.com/in/andikapriyotama",
-    ikon: <SiLinkedin size="64" />,
+    ikon: <SiLinkedin size="100%" />,
   },
-  { href: "https://github.com/sakitkepala", ikon: <SiGithub size="64" /> },
+  { href: "https://github.com/sakitkepala", ikon: <SiGithub size="100%" /> },
   {
     href: "https://bitbucket.org/andikapriyotama",
-    ikon: <SiBitbucket size="64" />,
+    ikon: <SiBitbucket size="100%" />,
   },
-  { href: "https://gitlab.com/andikapriyotama", ikon: <SiGitlab size="64" /> },
+  {
+    href: "https://gitlab.com/andikapriyotama",
+    ikon: <SiGitlab size="100%" />,
+  },
 ];
 
 const propsMotionTransisi = {
@@ -169,36 +172,39 @@ export default function HalamanDika() {
             </motion.figure>
           </div> */}
 
-          {/* <div id="sosial" className={name(st.bagian, st["bagian-internet"])}>
-            <div className={st["heading-bagian"]}>Di Internet</div>
+          <section id="sosial" className={styles["bagian-internet"]}>
+            <div className={styles["heading-bagian"]}>Di Internet</div>
 
-            <div className={st["bagian-internet__deskripsi"]}>
+            <div className={styles["bagian-internet__deskripsi"]}>
               <p>
-                Meskipun tidak begitu aktif main media sosial, saya masih bisa
-                ditemui di internet lewat beberapa layanan berikut:
+                Saya bisa ditemui di internet, meskipun tidak begitu aktif main
+                media sosial, lewat beberapa layanan berikut:
               </p>
             </div>
 
-            <ul className={st["bagian-internet__list-akun"]}>
-              {listIcon.map(({ href, ikon }) => (
+            <ul className={styles["bagian-internet__list-akun"]}>
+              {listIcon.map(({ href, ikon }, i) => (
                 <li
                   key={href}
-                  className={st["bagian-internet__list-item-ikon"]}
+                  className={classname(
+                    styles["bagian-internet__list-item-ikon"],
+                    { [styles.itemPertama]: i === 0 }
+                  )}
                 >
                   <NavLink href={href}>{ikon}</NavLink>
                 </li>
               ))}
             </ul>
-          </div> */}
+          </section>
         </motion.main>
 
         <footer className={styles.footer}>
           <div className={styles["footer__logo"]}>
-            <NavLink href="/">&#47; Eksperimennya Dika{/* &#47; */}</NavLink>
+            <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
           </div>
 
           <div className={styles["footer__hak-cipta"]}>
-            {new Date().getFullYear()} {/* &copy; */}
+            {new Date().getFullYear()}
             <span>☕&#10157;</span> Andika Priyotama D.
           </div>
         </footer>

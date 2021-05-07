@@ -125,10 +125,11 @@
 
   @media (max-width: 800px) {
     grid-template-columns: minmax(0, 1fr);
+    margin: 0 60px;
   }
 
   @media (max-width: 600px) {
-    margin: 0 30px;
+    margin: 0;
     margin-top: 12em;
   }
 
@@ -169,8 +170,50 @@
   color: turquoise;
 }
 
+.bagian-internet {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  max-width: 480px;
+  margin: 90px auto;
+
+  font-size: 18px;
+
+  @media (max-width: 800px) {
+    margin: 90px auto;
+  }
+
+  @media (max-width: 600px) {
+    margin: 90px 42px;
+  }
+
+  &__list-akun {
+    /* reset styling defaultnya ul & li */
+    padding: 0;
+    list-style: none;
+
+    margin-top: 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__list-item-ikon {
+    min-width: 12px;
+    max-width: 64px;
+    margin-left: 18px;
+  }
+
+  .itemPertama {
+    margin-left: 0;
+  }
+}
+
 .bagian {
-  width: 100%;
+  // width: 100%;
   // min-height: 100vh;
 
   &-dika {
@@ -210,37 +253,6 @@
       width: 400px;
       height: 400px;
       background-color: rgba(0, 0, 0, 0);
-    }
-  }
-
-  &-internet {
-    display: grid;
-    grid-template-columns: 1fr 600px 1fr;
-    grid-template-rows: 8em auto auto 8em;
-
-    position: relative;
-
-    margin-top: 44em;
-    min-height: 100%;
-
-    &__deskripsi {
-      grid-column-start: 2;
-      grid-row-start: 2;
-    }
-
-    &__list-akun {
-      grid-column-start: 2;
-      grid-row-start: 3;
-      display: flex;
-      justify-content: space-between;
-
-      padding: 0;
-      list-style: none;
-    }
-
-    &__list-item-ikon {
-      width: 64;
-      height: 64;
     }
   }
 }
