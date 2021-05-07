@@ -328,21 +328,41 @@
 
 .footer {
   display: grid;
-  grid-template-columns: 2em 1fr 2fr 1fr 2em;
-  grid-template-rows: 4em;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
 
-  &__logo {
-    grid-column-start: 2;
+  min-height: 72px;
+  margin: 0 30px;
 
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__logo {
     font-size: smaller;
     font-family: "Krona One", sans-serif;
     text-align: left;
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 
   &__hak-cipta {
     font-size: small;
     font-family: "DM Mono", monospace;
     text-align: center;
+
+    @media (max-width: 800px) {
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 }
