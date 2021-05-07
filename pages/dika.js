@@ -116,41 +116,43 @@ export default function HalamanDika() {
             </motion.div>
 
             <motion.div className={styles["bagian-situs__deskripsi"]}>
-              <p>
-                Situs ini masih <em>work in progress</em>&#42; dan saya anggap
-                akan <strong>selalu</strong> <em>work in progress</em>, dimana
-                saya akan membuat antarmuka eksperimental untuk halaman-halaman
-                situs ini sebagai projek yang berkelanjutan.
-              </p>
+              <div className={styles.kartu}>
+                <p>
+                  Situs ini masih <em>work in progress</em>&#42; dan saya anggap
+                  akan <strong>selalu</strong> <em>work in progress</em>, dimana
+                  saya akan membuat antarmuka eksperimental untuk
+                  halaman-halaman situs ini sebagai projek yang berkelanjutan.
+                </p>
 
-              <p>
-                Eksperimen web interaktif akan saya sajikan di halaman{" "}
-                <u>
-                  <NavLink href="/">&#8598;Depan</NavLink>
-                </u>{" "}
-                dan arsip eksperimen-eksperimen yang terdahulunya akan saya
-                kumpulkan di halaman{" "}
-                <u>
-                  <NavLink href="/lab">Lab&#8599;</NavLink>
-                </u>{" "}
-                bersama projek-projek lainnya.
-              </p>
+                <p>
+                  Eksperimen web interaktif akan saya sajikan di halaman{" "}
+                  <u>
+                    <NavLink href="/">&#8598;Depan</NavLink>
+                  </u>{" "}
+                  dan arsip eksperimen-eksperimen yang terdahulunya akan saya
+                  kumpulkan di halaman{" "}
+                  <u>
+                    <NavLink href="/lab">Lab&#8599;</NavLink>
+                  </u>{" "}
+                  bersama projek-projek lainnya.
+                </p>
 
-              <p>
-                Sambil menunggu apa yang akan saya buat di sini, silakan boleh
-                sapa-sapa lewat{" "}
-                <u>
-                  <a href="#sosial">kontak di bagian bawah&#8600;</a>
-                </u>
-                .
-              </p>
+                <p>
+                  Sambil menunggu apa yang akan saya buat di sini, silakan boleh
+                  sapa-sapa lewat{" "}
+                  <u>
+                    <a href="#sosial">kontak di bagian bawah&#8600;</a>
+                  </u>
+                  .
+                </p>
 
-              <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
+                <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
-              <p>
-                &#42; perhatikan animasi <em>scrolling</em> &amp; layout
-                responsifnya masih ambyar 😆
-              </p>
+                <p>
+                  &#42; perhatikan animasi <em>scrolling</em> &amp; layout
+                  responsifnya masih ambyar 😆
+                </p>
+              </div>
             </motion.div>
           </div>
 
