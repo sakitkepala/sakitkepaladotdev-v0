@@ -65,12 +65,11 @@
 
   &__sambut {
     align-self: center;
-
     min-width: 280px;
+    margin-top: 120px;
 
     @media (max-width: 800px) {
       align-self: end;
-
       margin-top: 120px;
     }
   }
@@ -100,19 +99,25 @@
   }
 
   &__deskripsi {
-    align-self: end;
+    align-self: center;
+
     min-width: 280px;
     padding: 0 18px;
+    margin-top: 120px;
     margin-right: 42px;
-    margin-bottom: 42px;
+
     font-size: 18px;
     color: #384346;
+
     background-color: ghostwhite;
 
     @media (max-width: 800px) {
       align-self: start;
+
       padding: 0;
       margin-right: 0;
+      margin-top: 0;
+
       font-size: 18px;
     }
 
@@ -149,8 +154,9 @@
   }
 
   @media (max-width: 600px) {
-    margin: 0;
     margin-top: 12em;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
   margin-top: 12em;
@@ -171,8 +177,13 @@
       box-shadow: 0 2px 6px 3px #002f3c0e;
 
       .footnote {
+        margin-top: 42px;
         font-size: smaller;
         color: #6e868d;
+      }
+
+      .footnotePointer {
+        color: hotpink;
       }
     }
   }

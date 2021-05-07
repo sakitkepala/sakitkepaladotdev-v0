@@ -78,7 +78,7 @@ export default function HalamanDika() {
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <div className={styles["bagian-hai"]}>
+          <section className={styles["bagian-hai"]}>
             <motion.div className={styles["bagian-hai__sambut"]}>
               <motion.h1 id="hai" className={styles["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
@@ -111,9 +111,9 @@ export default function HalamanDika() {
 
               <p className={styles.selamatDatang}>Selamat datang!</p>
             </motion.div>
-          </div>
+          </section>
 
-          <div className={styles["bagian-situs"]}>
+          <section className={styles["bagian-situs"]}>
             <motion.div className={styles["heading-bagian"]}>
               Tentang Situs Ini
             </motion.div>
@@ -122,9 +122,9 @@ export default function HalamanDika() {
               <div className={styles.kartu}>
                 <p>
                   Situs ini masih <em>work in progress</em>
-                  <span className={styles.footnote}>&#42;</span> dan saya anggap
-                  akan <strong>selalu</strong> <em>work in progress</em>, dimana
-                  saya akan membuat antarmuka eksperimental untuk
+                  <span className={styles.footnotePointer}>&#42;</span> dan saya
+                  anggap akan <strong>selalu</strong> <em>work in progress</em>,
+                  dimana saya akan membuat antarmuka eksperimental untuk
                   halaman-halaman situs ini sebagai projek yang berkelanjutan.
                 </p>
 
@@ -152,15 +152,14 @@ export default function HalamanDika() {
 
                 <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
-                <p>
-                  <span className={styles.footnote}>
-                    &#42; perhatikan animasi <em>scrolling</em> &amp; layout
-                    responsifnya masih ambyar 😆
-                  </span>
+                <p className={styles.footnote}>
+                  <span className={styles.footnotePointer}>&#42;</span>{" "}
+                  perhatikan animasi <em>scrolling</em> &amp; layout
+                  responsifnya masih ambyar 😆
                 </p>
               </div>
             </motion.div>
-          </div>
+          </section>
 
           {/* <div id="dika" className={name(st.bagian, st["bagian-dika"])}>
             <motion.figure className={st["bagian-dika__penampakan"]}>
