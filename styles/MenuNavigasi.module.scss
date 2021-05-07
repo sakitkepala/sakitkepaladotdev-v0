@@ -1,13 +1,93 @@
-.bungkus {
+.navigasi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Krona One", sans-serif;
+
+  color: #002f3c;
+}
+
+.listMenu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
-  font-family: "Krona One", sans-serif;
+  .link {
+    margin-left: 30px;
+    font-size: 16px;
+  }
+}
+
+.hamburger {
+  margin-left: 30px;
+}
+
+.tombolToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  background: none;
+
   color: #002f3c;
 
-  .link {
-    margin-left: 2em;
-    font-size: smaller;
+  @media (max-width: 600px) {
+    cursor: pointer;
+  }
+}
+
+.screenMenu {
+  position: absolute;
+  top: -27px;
+  left: -42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(248, 248, 255, 0.98);
+
+  & > nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      margin: 18px 0;
+
+      font-size: 36px;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    & > svg {
+      transform: scale(1.5);
+    }
   }
 }
