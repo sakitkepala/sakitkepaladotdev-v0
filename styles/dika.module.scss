@@ -62,7 +62,7 @@
   &__sambut-teks {
     font-family: "Krona One", sans-serif;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 38px;
 
     color: #002f3c;
 
@@ -105,11 +105,10 @@
   display: grid;
   grid-template-columns: 5fr 3fr;
   column-gap: 30px;
+  justify-content: center;
 
   margin: 0 90px;
   margin-top: 12em;
-
-  background-color: rgba(0, 255, 255, 0.445);
 
   @media (max-width: 800px) {
     grid-template-columns: minmax(0, 1fr);
@@ -123,13 +122,11 @@
   margin-top: 12em;
 
   &__deskripsi {
-    grid-column-start: 2;
+    grid-column-start: 1;
     min-width: 270px;
-    font-size: smaller;
+    max-width: 420px;
 
-    @media (max-width: 800px) {
-      grid-column-start: 1;
-    }
+    font-size: smaller;
   }
 }
 

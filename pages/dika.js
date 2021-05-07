@@ -8,7 +8,7 @@ import { NavLink } from "../components/nav-link";
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
 import name from "classnames";
-import st from "../styles/dika.module.scss";
+import styles from "../styles/dika.module.scss";
 
 const listIcon = [
   { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="64" /> },
@@ -68,31 +68,31 @@ export default function HalamanDika() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={st.halaman}>
-        <header className={st.header}>
+      <div className={styles.halaman}>
+        <header className={styles.header}>
           <LogoHeader />
           <MenuNavigasi />
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <div className={st["bagian-hai"]}>
-            <motion.div className={st["bagian-hai__sambut"]}>
-              <motion.h1 id="hai" className={st["bagian-hai__sambut-teks"]}>
+          <div className={styles["bagian-hai"]}>
+            <motion.div className={styles["bagian-hai__sambut"]}>
+              <motion.h1 id="hai" className={styles["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika" className={st.link}>
+                  <a href="#dika" className={styles.link}>
                     Dika&#8601;
                   </a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
-                <span className={st.anotasi}>&mdash;dan</span>{" "}
-                <span className={st.anotasi}>
+                <span className={styles.anotasi}>&mdash;dan</span>{" "}
+                <span className={styles.anotasi}>
                   <a href="#dika">software developer&#8601;</a>
                 </span>
               </motion.h1>
             </motion.div>
 
-            <motion.div className={st["bagian-hai__deskripsi"]}>
+            <motion.div className={styles["bagian-hai__deskripsi"]}>
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
@@ -106,16 +106,16 @@ export default function HalamanDika() {
                 pengalaman interaktif di <em>browser</em>.
               </p>
 
-              <p className={st.selamatDatang}>Selamat datang!</p>
+              <p className={styles.selamatDatang}>Selamat datang!</p>
             </motion.div>
           </div>
 
-          <div className={st["bagian-situs"]}>
-            <motion.div className={st["heading-bagian"]}>
+          <div className={styles["bagian-situs"]}>
+            <motion.div className={styles["heading-bagian"]}>
               Tentang Situs Ini
             </motion.div>
 
-            <motion.div className={st["bagian-situs__deskripsi"]}>
+            <motion.div className={styles["bagian-situs__deskripsi"]}>
               <p>
                 Situs ini masih <em>work in progress</em>&#42; dan saya anggap
                 akan <strong>selalu</strong> <em>work in progress</em>, dimana
@@ -187,12 +187,12 @@ export default function HalamanDika() {
           </div> */}
         </motion.main>
 
-        <footer className={st.footer}>
-          <div className={st["footer__logo"]}>
+        <footer className={styles.footer}>
+          <div className={styles["footer__logo"]}>
             <NavLink href="/">&#47; Eksperimennya Dika{/* &#47; */}</NavLink>
           </div>
 
-          <div className={st["footer__hak-cipta"]}>
+          <div className={styles["footer__hak-cipta"]}>
             {new Date().getFullYear()} {/* &copy; */}
             <span>☕&#10157;</span> Andika Priyotama D.
           </div>
