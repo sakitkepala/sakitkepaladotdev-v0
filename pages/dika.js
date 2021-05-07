@@ -118,7 +118,8 @@ export default function HalamanDika() {
             <motion.div className={styles["bagian-situs__deskripsi"]}>
               <div className={styles.kartu}>
                 <p>
-                  Situs ini masih <em>work in progress</em>&#42; dan saya anggap
+                  Situs ini masih <em>work in progress</em>
+                  <span className={styles.footnote}>&#42;</span> dan saya anggap
                   akan <strong>selalu</strong> <em>work in progress</em>, dimana
                   saya akan membuat antarmuka eksperimental untuk
                   halaman-halaman situs ini sebagai projek yang berkelanjutan.
@@ -149,8 +150,10 @@ export default function HalamanDika() {
                 <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
                 <p>
-                  &#42; perhatikan animasi <em>scrolling</em> &amp; layout
-                  responsifnya masih ambyar 😆
+                  <span className={styles.footnote}>
+                    &#42; perhatikan animasi <em>scrolling</em> &amp; layout
+                    responsifnya masih ambyar 😆
+                  </span>
                 </p>
               </div>
             </motion.div>
