@@ -38,11 +38,13 @@
 
   @media (max-width: 800px) {
     grid-template-columns: minmax(0, 1fr);
-    margin: 0 60px;
+    margin-left: 60px;
+    margin-right: 60px;
   }
 
   @media (max-width: 600px) {
-    margin: 0 42px;
+    margin-left: 42px;
+    margin-right: 42px;
   }
 
   &__sambut {
@@ -52,10 +54,8 @@
 
     @media (max-width: 800px) {
       align-self: end;
-    }
 
-    @media (max-width: 600px) {
-      font-size: small;
+      margin-top: 120px;
     }
   }
 
@@ -65,6 +65,10 @@
     font-size: 38px;
 
     color: #002f3c;
+
+    @media (max-width: 600px) {
+      font-size: 30px;
+    }
 
     &--span-animasi {
       display: block;
@@ -198,13 +202,18 @@
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+
+    @media (max-width: 600px) {
+      margin-top: 60px;
+    }
   }
 
   &__list-item-ikon {
     min-width: 12px;
     max-width: 64px;
     margin-left: 18px;
+    margin-bottom: 18px;
   }
 
   .itemPertama {
