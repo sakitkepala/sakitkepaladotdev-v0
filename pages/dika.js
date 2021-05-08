@@ -39,14 +39,13 @@ const vektorTransform = 300;
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
 
-  const refSectionHai = React.useRef(null);
-  const [pageYSectionHai, setPageYSectionHai] = React.useState(null);
+  const sectionHai = useElementPageY();
+  const sectionSitus = useElementPageY();
+  const teksDeskripsi = useElementPageY();
 
-  React.useEffect(() => {
-    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
-    const clientY = refSectionHai.current.getBoundingClientRect().y;
-    setPageYSectionHai(clientY + scrollY.current);
-  }, []);
+  const { refDOM: refSectionHai, pageY: pageYSectionHai } = sectionHai;
+  const { refDOM: refSectionSitus, pageY: pageYSectionSitus } = sectionSitus;
+  const { refDOM: refTeksDeskripsi } = teksDeskripsi;
 
   const translateYHai = useTransform(
     scrollY,
@@ -54,42 +53,17 @@ export default function HalamanDika() {
     [0, vektorTransform]
   );
 
-  const refSectionSitus = React.useRef(null);
-  const [pageYSectionSitus, setPageYSectionSitus] = React.useState(null);
-
-  React.useEffect(() => {
-    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
-    const clientY = refSectionSitus.current.getBoundingClientRect().y;
-    setPageYSectionSitus(clientY + scrollY.current);
-  }, []);
-
   const translateYSitus = useTransform(
     scrollY,
     [pageYSectionSitus, pageYSectionSitus + jarakScroll],
     [0, vektorTransform]
   );
 
-  const refTeksDeskripsi = React.useRef(null);
-  const [pageYTeksDeskripsi, setPageYTeksDeskripsi] = React.useState(null);
-
-  React.useEffect(() => {
-    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
-    const clientY = refTeksDeskripsi.current.getBoundingClientRect().y;
-    setPageYTeksDeskripsi(clientY + scrollY.current);
-  }, []);
-
   const translateYTeksDeskripsi = useTransform(
     scrollY,
     [pageYSectionHai, pageYSectionHai + jarakScroll],
     [0, -2 * vektorTransform],
     0.65
-  );
-
-  console.log(
-    "pageYSectionHai, pageYSectionSitus, pageYTeksDeskripsi",
-    pageYSectionHai,
-    pageYSectionSitus,
-    pageYTeksDeskripsi
   );
 
   return (
@@ -237,4 +211,19 @@ export default function HalamanDika() {
       </div>
     </>
   );
+}
+
+// My Custom Hook
+
+function useElementPageY() {
+  const refDOM = React.useRef(null);
+  const [pageY, setPageY] = React.useState(null);
+
+  React.useEffect(() => {
+    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
+    const clientY = refDOM.current.getBoundingClientRect().y;
+    setPageY(clientY + window.scrollY);
+  }, []);
+
+  return { refDOM, pageY };
 }
