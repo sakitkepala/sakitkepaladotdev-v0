@@ -39,30 +39,28 @@ const vektorTransform = 300;
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
 
-  const refSectionHai = React.useRef(null);
   const refSectionSitus = React.useRef(null);
-
-  const pageYSectionHai = useElementPageY(refSectionHai);
   const pageYSectionSitus = useElementPageY(refSectionSitus);
 
-  const translateYHai = useTransform(
+  const opacityKartu = useTransform(
     scrollY,
-    [pageYSectionHai, pageYSectionHai + jarakScroll],
-    [0, vektorTransform]
+    [
+      pageYSectionSitus - 400,
+      pageYSectionSitus - 200,
+      pageYSectionSitus + 600,
+      pageYSectionSitus + 800,
+    ],
+    [0, 1, 1, 0]
   );
-
-  const translateYSitus = useTransform(
+  const yKartu = useTransform(
     scrollY,
-    [pageYSectionSitus, pageYSectionSitus + jarakScroll],
-    [0, vektorTransform]
+    [pageYSectionSitus, pageYSectionSitus + 400],
+    [42, 442]
   );
-
-  const translateYTeksDeskripsi = useTransform(
-    scrollY,
-    [pageYSectionHai, pageYSectionHai + jarakScroll],
-    [0, -2 * vektorTransform],
-    0.65
-  );
+  const motionScrollKartu = {
+    opacity: opacityKartu,
+    y: yKartu,
+  };
 
   return (
     <>
@@ -78,7 +76,7 @@ export default function HalamanDika() {
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <section className={dika["bagian-hai"]} ref={refSectionHai}>
+          <section className={dika["bagian-hai"]}>
             <motion.div className={dika["bagian-hai__sambut"]}>
               <motion.h1 id="hai" className={dika["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
@@ -95,10 +93,7 @@ export default function HalamanDika() {
               </motion.h1>
             </motion.div>
 
-            <motion.div
-              className={dika["bagian-hai__deskripsi"]}
-              style={{ y: translateYTeksDeskripsi }}
-            >
+            <motion.div className={dika["bagian-hai__deskripsi"]}>
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
@@ -117,10 +112,7 @@ export default function HalamanDika() {
           </section>
 
           <section className={dika["bagian-situs"]} ref={refSectionSitus}>
-            <motion.div
-              className={dika.kartu}
-              style={{ translateY: translateYSitus }}
-            >
+            <motion.div className={dika.kartu} style={motionScrollKartu}>
               <p>
                 Situs ini masih <em>work in progress</em>
                 <span className={dika.footnotePointer}>&#42;</span> dan saya
