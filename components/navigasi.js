@@ -11,14 +11,11 @@ const hamburger = {
 
 function MenuNavigasi() {
   const layarKecil = useMedia(["(max-width: 600px)"], [true], false);
-  const [toggleHamburger, setHamburger] = useCycle(true, false);
+  const [toggleHamburger, cycleToggle] = useCycle(false, true);
   const isTampilHamburger = layarKecil && toggleHamburger;
 
   function onClickHamburger() {
-    if (!layarKecil) {
-      return;
-    }
-    setHamburger();
+    layarKecil && cycleToggle();
   }
 
   return (
@@ -47,8 +44,8 @@ function MenuNavigasi() {
       </div>
 
       {isTampilHamburger && (
-        <div className={styles.screenMenu} onClick={() => setHamburger()}>
-          <button className={styles.close}>
+        <div className={styles.screenMenu}>
+          <button className={styles.close} onClick={() => cycleToggle()}>
             <svg viewBox="0 0 24 24" width="24" height="24">
               <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"></path>
             </svg>
