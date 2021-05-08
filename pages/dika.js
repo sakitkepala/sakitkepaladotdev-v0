@@ -33,10 +33,26 @@ const propsMotionTransisi = {
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
 };
 
+const jarakScroll = 400;
+const vektorTransform = 300;
+
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
-  // logika transform scroll
-  // ...
+
+  const refSectionSitus = React.useRef(null);
+  const [pageYSectionSitus, setPageYSectionSitus] = React.useState(null);
+
+  React.useEffect(() => {
+    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
+    const clientY = refSectionSitus.current.getBoundingClientRect().y;
+    setPageYSectionSitus(clientY + scrollY.current);
+  }, []);
+
+  const translateYSitus = useTransform(
+    scrollY,
+    [pageYSectionSitus, pageYSectionSitus + jarakScroll],
+    [0, vektorTransform]
+  );
 
   return (
     <>
@@ -87,8 +103,11 @@ export default function HalamanDika() {
             </motion.div>
           </section>
 
-          <section className={dika["bagian-situs"]}>
-            <motion.div className={dika.kartu}>
+          <section className={dika["bagian-situs"]} ref={refSectionSitus}>
+            <motion.div
+              className={dika.kartu}
+              style={{ translateY: translateYSitus }}
+            >
               <p>
                 Situs ini masih <em>work in progress</em>
                 <span className={dika.footnotePointer}>&#42;</span> dan saya
