@@ -198,12 +198,12 @@ export default function HalamanDika() {
           </section>
         </motion.main>
 
-        <footer className={dika.footer}>
-          <div className={dika["footer__logo"]}>
+        <footer className={layout.footer}>
+          <div className={layout["footer__logo"]}>
             <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
           </div>
 
-          <div className={dika["footer__hak-cipta"]}>
+          <div className={layout["footer__hak-cipta"]}>
             {new Date().getFullYear()}
             <span>☕&#10157;</span> Andika Priyotama D.
           </div>

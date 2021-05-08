@@ -6,20 +6,21 @@ import { MenuNavigasi } from "../components/navigasi";
 import { NavLink } from "../components/nav-link";
 
 import name from "classnames";
-import st from "../styles/Dika.module.scss";
+import old from "../styles/Dika.module.scss";
+import layout from "../styles/Layout.module.scss";
 
 function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
   return (
-    <article className={st["lab-artikel"]}>
+    <article className={old["lab-artikel"]}>
       <NavLink href={`/lab/eksperimen/${repo}`}>
-        <div className={st["lab-artikel__thumb"]}>
+        <div className={old["lab-artikel__thumb"]}>
           <img />
         </div>
       </NavLink>
 
       <NavLink href={`/lab/eksperimen/${repo}`}>
-        <h2 className={st["lab-artikel__judul"]}>{judul}</h2>
+        <h2 className={old["lab-artikel__judul"]}>{judul}</h2>
       </NavLink>
     </article>
   );
@@ -38,40 +39,40 @@ export default function HalamanLab({ listInfo }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={st.halaman}>
-        <header className={st.header}>
+      <div className={old.halaman}>
+        <header className={layout.header}>
           <LogoHeader />
           <MenuNavigasi />
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <div className={st["bagian-lab"]}>
+          <div className={old["bagian-lab"]}>
             <div
               className={name(
-                st["bagian-lab__deskripsi"],
-                st["bagian-lab__deskripsi--eksperimen"]
+                old["bagian-lab__deskripsi"],
+                old["bagian-lab__deskripsi--eksperimen"]
               )}
             >
               <h1
-                className={st["bagian-lab__heading-deskripsi"]}
+                className={old["bagian-lab__heading-deskripsi"]}
                 style={{ color: "lightsteelblue" }}
               >
                 Eksperimen
               </h1>
 
-              <p className={st["bagian-lab__tulisan-deskripsi"]}>
+              <p className={old["bagian-lab__tulisan-deskripsi"]}>
                 {/* TODO: */}
                 <em style={{ color: "lightsteelblue" }}>...to be developed</em>
               </p>
             </div>
 
-            <ul className={st["bagian-lab__list-eksperimen"]}>
+            <ul className={old["bagian-lab__list-eksperimen"]}>
               <li>
                 {/* TODO: */}
-                <article className={st["lab-artikel"]}>
+                <article className={old["lab-artikel"]}>
                   {/* <NavLink href="/dika"> */}
                   <div
-                    className={st["lab-artikel__thumb"]}
+                    className={old["lab-artikel__thumb"]}
                     style={{
                       borderColor: "lightsteelblue",
                       backgroundColor: "transparent",
@@ -83,7 +84,7 @@ export default function HalamanLab({ listInfo }) {
 
                   {/* <NavLink href="/dika"> */}
                   <h2
-                    className={st["lab-artikel__judul"]}
+                    className={old["lab-artikel__judul"]}
                     style={{ color: "lightsteelblue" }}
                   >
                     ...to be developed
@@ -95,23 +96,23 @@ export default function HalamanLab({ listInfo }) {
 
             <div
               className={name(
-                st["bagian-lab__deskripsi"],
-                st["bagian-lab__deskripsi--projek"]
+                old["bagian-lab__deskripsi"],
+                old["bagian-lab__deskripsi--projek"]
               )}
             >
-              <h1 className={st["bagian-lab__heading-deskripsi"]}>Projek</h1>
+              <h1 className={old["bagian-lab__heading-deskripsi"]}>Projek</h1>
 
-              <p className={st["bagian-lab__tulisan-deskripsi"]}>
+              <p className={old["bagian-lab__tulisan-deskripsi"]}>
                 Projek-projek menarik yang mau kucoba.
               </p>
             </div>
 
-            <ul className={st["bagian-lab__list-projek"]}>
+            <ul className={old["bagian-lab__list-projek"]}>
               <li>
-                <article className={st["lab-artikel"]}>
+                <article className={old["lab-artikel"]}>
                   <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
                     <div
-                      className={st["lab-artikel__thumb"]}
+                      className={old["lab-artikel__thumb"]}
                       style={{
                         backgroundImage: "url(/wkwkbudgetapp.jpg)",
                         backgroundSize: "cover",
@@ -121,7 +122,7 @@ export default function HalamanLab({ listInfo }) {
                     />
                   </NavLink>
 
-                  <h2 className={st["lab-artikel__judul"]}>
+                  <h2 className={old["lab-artikel__judul"]}>
                     <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
                       Budgeting App &#40;WIP&#41;
                     </NavLink>
@@ -132,15 +133,14 @@ export default function HalamanLab({ listInfo }) {
           </div>
         </motion.main>
 
-        <footer className={st.footer}>
-          <div className={st["footer__logo"]}>
-            <NavLink href="/">&#47; Eksperimennya Dika{/* &#47; */}</NavLink>
+        <footer className={layout.footer}>
+          <div className={layout["footer__logo"]}>
+            <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
           </div>
 
-          <div className={st["footer__hak-cipta"]}>
-            {new Date().getFullYear()} {/* &copy; */}
-            <span style={{ fontSize: "1.6em" }}>☕&#10157;</span> Andika
-            Priyotama D.
+          <div className={layout["footer__hak-cipta"]}>
+            {new Date().getFullYear()}
+            <span>☕&#10157;</span> Andika Priyotama D.
           </div>
         </footer>
       </div>
