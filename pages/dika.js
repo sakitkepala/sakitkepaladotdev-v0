@@ -8,7 +8,8 @@ import { NavLink } from "../components/nav-link";
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
 import classname from "classnames";
-import styles from "../styles/dika.module.scss";
+import layout from "../styles/Layout.module.scss";
+import dika from "../styles/HalamanDika.module.scss";
 
 const listIcon = [
   { href: "mailto:andikapriyotamad@gmail.com", ikon: <IoMail size="100%" /> },
@@ -71,31 +72,31 @@ export default function HalamanDika() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.halaman}>
-        <header className={styles.header}>
+      <div className={layout.halaman}>
+        <header className={layout.header}>
           <LogoHeader />
           <MenuNavigasi />
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <section className={styles["bagian-hai"]}>
-            <motion.div className={styles["bagian-hai__sambut"]}>
-              <motion.h1 id="hai" className={styles["bagian-hai__sambut-teks"]}>
+          <section className={dika["bagian-hai"]}>
+            <motion.div className={dika["bagian-hai__sambut"]}>
+              <motion.h1 id="hai" className={dika["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
                 <u>
-                  <a href="#dika" className={styles.link}>
+                  <a href="#dika" className={dika.link}>
                     Dika&#8601;
                   </a>
                 </u>
                 , pengrajin pengalaman interaktif untuk web.
-                <span className={styles.anotasi}>&mdash;dan</span>{" "}
-                <span className={styles.anotasi}>
+                <span className={dika.anotasi}>&mdash;dan</span>{" "}
+                <span className={dika.anotasi}>
                   <a href="#dika">software developer&#8601;</a>
                 </span>
               </motion.h1>
             </motion.div>
 
-            <motion.div className={styles["bagian-hai__deskripsi"]}>
+            <motion.div className={dika["bagian-hai__deskripsi"]}>
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
@@ -109,20 +110,20 @@ export default function HalamanDika() {
                 pengalaman interaktif di <em>browser</em>.
               </p>
 
-              <p className={styles.selamatDatang}>Selamat datang!</p>
+              <p className={dika.selamatDatang}>Selamat datang!</p>
             </motion.div>
           </section>
 
-          <section className={styles["bagian-situs"]}>
-            <motion.div className={styles["heading-bagian"]}>
+          <section className={dika["bagian-situs"]}>
+            <motion.div className={dika["heading-bagian"]}>
               Tentang Situs Ini
             </motion.div>
 
-            <motion.div className={styles["bagian-situs__deskripsi"]}>
-              <div className={styles.kartu}>
+            <motion.div className={dika["bagian-situs__deskripsi"]}>
+              <div className={dika.kartu}>
                 <p>
                   Situs ini masih <em>work in progress</em>
-                  <span className={styles.footnotePointer}>&#42;</span> dan saya
+                  <span className={dika.footnotePointer}>&#42;</span> dan saya
                   anggap akan <strong>selalu</strong> <em>work in progress</em>,
                   dimana saya akan membuat antarmuka eksperimental untuk
                   halaman-halaman situs ini sebagai projek yang berkelanjutan.
@@ -152,10 +153,10 @@ export default function HalamanDika() {
 
                 <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
-                <p className={styles.footnote}>
-                  <span className={styles.footnotePointer}>&#42;</span>{" "}
-                  perhatikan animasi <em>scrolling</em> &amp; layout
-                  responsifnya masih ambyar 😆
+                <p className={dika.footnote}>
+                  <span className={dika.footnotePointer}>&#42;</span> perhatikan
+                  animasi <em>scrolling</em> &amp; layout responsifnya masih
+                  ambyar 😆
                 </p>
               </div>
             </motion.div>
@@ -171,23 +172,23 @@ export default function HalamanDika() {
             </motion.figure>
           </div> */}
 
-          <section id="sosial" className={styles["bagian-internet"]}>
-            <div className={styles["heading-bagian"]}>Di Internet</div>
+          <section id="sosial" className={dika["bagian-internet"]}>
+            <div className={dika["heading-bagian"]}>Di Internet</div>
 
-            <div className={styles["bagian-internet__deskripsi"]}>
+            <div className={dika["bagian-internet__deskripsi"]}>
               <p>
                 Saya bisa ditemui di internet, meskipun tidak begitu aktif main
                 media sosial, lewat beberapa layanan berikut:
               </p>
             </div>
 
-            <ul className={styles["bagian-internet__list-akun"]}>
+            <ul className={dika["bagian-internet__list-akun"]}>
               {listIcon.map(({ href, ikon }, i) => (
                 <li
                   key={href}
                   className={classname(
-                    styles["bagian-internet__list-item-ikon"],
-                    { [styles.itemPertama]: i === 0 }
+                    dika["bagian-internet__list-item-ikon"],
+                    { [dika.itemPertama]: i === 0 }
                   )}
                 >
                   <NavLink href={href}>{ikon}</NavLink>
@@ -197,12 +198,12 @@ export default function HalamanDika() {
           </section>
         </motion.main>
 
-        <footer className={styles.footer}>
-          <div className={styles["footer__logo"]}>
+        <footer className={dika.footer}>
+          <div className={dika["footer__logo"]}>
             <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
           </div>
 
-          <div className={styles["footer__hak-cipta"]}>
+          <div className={dika["footer__hak-cipta"]}>
             {new Date().getFullYear()}
             <span>☕&#10157;</span> Andika Priyotama D.
           </div>
