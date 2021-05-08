@@ -39,6 +39,21 @@ const vektorTransform = 300;
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
 
+  const refSectionHai = React.useRef(null);
+  const [pageYSectionHai, setPageYSectionHai] = React.useState(null);
+
+  React.useEffect(() => {
+    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
+    const clientY = refSectionHai.current.getBoundingClientRect().y;
+    setPageYSectionHai(clientY + scrollY.current);
+  }, []);
+
+  const translateYHai = useTransform(
+    scrollY,
+    [pageYSectionHai, pageYSectionHai + jarakScroll],
+    [0, vektorTransform]
+  );
+
   const refSectionSitus = React.useRef(null);
   const [pageYSectionSitus, setPageYSectionSitus] = React.useState(null);
 
@@ -52,6 +67,29 @@ export default function HalamanDika() {
     scrollY,
     [pageYSectionSitus, pageYSectionSitus + jarakScroll],
     [0, vektorTransform]
+  );
+
+  const refTeksDeskripsi = React.useRef(null);
+  const [pageYTeksDeskripsi, setPageYTeksDeskripsi] = React.useState(null);
+
+  React.useEffect(() => {
+    // Karena jalan pasti setelah mounting, ref DOM gak akan null waktu callback ini jalan
+    const clientY = refTeksDeskripsi.current.getBoundingClientRect().y;
+    setPageYTeksDeskripsi(clientY + scrollY.current);
+  }, []);
+
+  const translateYTeksDeskripsi = useTransform(
+    scrollY,
+    [pageYSectionHai, pageYSectionHai + jarakScroll],
+    [0, -2 * vektorTransform],
+    0.65
+  );
+
+  console.log(
+    "pageYSectionHai, pageYSectionSitus, pageYTeksDeskripsi",
+    pageYSectionHai,
+    pageYSectionSitus,
+    pageYTeksDeskripsi
   );
 
   return (
@@ -68,7 +106,7 @@ export default function HalamanDika() {
         </header>
 
         <motion.main {...propsMotionTransisi}>
-          <section className={dika["bagian-hai"]}>
+          <section className={dika["bagian-hai"]} ref={refSectionHai}>
             <motion.div className={dika["bagian-hai__sambut"]}>
               <motion.h1 id="hai" className={dika["bagian-hai__sambut-teks"]}>
                 Hai! <span className="emoji-lambai">👋</span> Saya{" "}
@@ -85,7 +123,11 @@ export default function HalamanDika() {
               </motion.h1>
             </motion.div>
 
-            <motion.div className={dika["bagian-hai__deskripsi"]}>
+            <motion.div
+              className={dika["bagian-hai__deskripsi"]}
+              ref={refTeksDeskripsi}
+              style={{ y: translateYTeksDeskripsi }}
+            >
               <p>
                 Ini situs web pribadi saya. Sungguh{" "}
                 <u>
