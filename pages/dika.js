@@ -7,7 +7,7 @@ import { NavLink } from "../components/nav-link";
 
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
-import classname from "classnames";
+import classnames from "classnames";
 import layout from "../styles/Layout.module.scss";
 import dika from "../styles/HalamanDika.module.scss";
 
@@ -31,33 +31,6 @@ const listIcon = [
 const propsMotionTransisi = {
   initial: { opacity: 0, translateY: 20 },
   animate: { opacity: 1, translateY: 0, transition: { duration: 0.2 } },
-};
-
-const bungkusH1 = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const tulisanH1 = {
-  hidden: { opacity: 0, translateY: "1em" },
-  show: {
-    opacity: 1,
-    translateY: 0,
-    transition: { duration: 0.5 },
-  },
-};
-
-const tulisanDeskripsi = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { delay: 1, duration: 0.25 },
-  },
 };
 
 export default function HalamanDika() {
@@ -115,46 +88,44 @@ export default function HalamanDika() {
           </section>
 
           <section className={dika["bagian-situs"]}>
-            <motion.div className={dika["bagian-situs__deskripsi"]}>
-              <div className={dika.kartu}>
-                <p>
-                  Situs ini masih <em>work in progress</em>
-                  <span className={dika.footnotePointer}>&#42;</span> dan saya
-                  anggap akan <strong>selalu</strong> <em>work in progress</em>,
-                  dimana saya akan membuat antarmuka eksperimental untuk
-                  halaman-halaman situs ini sebagai projek yang berkelanjutan.
-                </p>
+            <motion.div className={dika.kartu}>
+              <p>
+                Situs ini masih <em>work in progress</em>
+                <span className={dika.footnotePointer}>&#42;</span> dan saya
+                anggap akan <strong>selalu</strong> <em>work in progress</em>,
+                dimana saya akan membuat antarmuka eksperimental untuk
+                halaman-halaman situs ini sebagai projek yang berkelanjutan.
+              </p>
 
-                <p>
-                  Eksperimen web interaktif akan saya sajikan di halaman{" "}
-                  <u>
-                    <NavLink href="/">&#8598;Depan</NavLink>
-                  </u>{" "}
-                  dan arsip eksperimen-eksperimen yang terdahulunya akan saya
-                  kumpulkan di halaman{" "}
-                  <u>
-                    <NavLink href="/lab">Lab&#8599;</NavLink>
-                  </u>{" "}
-                  bersama projek-projek lainnya.
-                </p>
+              <p>
+                Eksperimen web interaktif akan saya sajikan di halaman{" "}
+                <u>
+                  <NavLink href="/">&#8598;Depan</NavLink>
+                </u>{" "}
+                dan arsip eksperimen-eksperimen yang terdahulunya akan saya
+                kumpulkan di halaman{" "}
+                <u>
+                  <NavLink href="/lab">Lab&#8599;</NavLink>
+                </u>{" "}
+                bersama projek-projek lainnya.
+              </p>
 
-                <p>
-                  Sambil menunggu apa yang akan saya buat di sini, silakan boleh
-                  sapa-sapa lewat{" "}
-                  <u>
-                    <a href="#sosial">kontak di bagian bawah&#8600;</a>
-                  </u>
-                  .
-                </p>
+              <p>
+                Sambil menunggu apa yang akan saya buat di sini, silakan boleh
+                sapa-sapa lewat{" "}
+                <u>
+                  <a href="#sosial">kontak di bagian bawah&#8600;</a>
+                </u>
+                .
+              </p>
 
-                <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
+              <p>Dengan senang hati, nanti saya balas sapanya 😄</p>
 
-                <p className={dika.footnote}>
-                  <span className={dika.footnotePointer}>&#42;</span> perhatikan
-                  animasi <em>scrolling</em> &amp; layout responsifnya masih
-                  ambyar 😆
-                </p>
-              </div>
+              <p className={dika.footnote}>
+                <span className={dika.footnotePointer}>&#42;</span> perhatikan
+                animasi <em>scrolling</em> &amp; layout responsifnya masih
+                ambyar 😆
+              </p>
             </motion.div>
           </section>
 
@@ -180,7 +151,7 @@ export default function HalamanDika() {
               {listIcon.map(({ href, ikon }, i) => (
                 <li
                   key={href}
-                  className={classname(
+                  className={classnames(
                     dika["bagian-internet__list-item-ikon"],
                     { [dika.itemPertama]: i === 0 }
                   )}
