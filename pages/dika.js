@@ -115,10 +115,6 @@ export default function HalamanDika() {
           </section>
 
           <section className={dika["bagian-situs"]}>
-            <motion.div className={dika["heading-bagian"]}>
-              Tentang Situs Ini
-            </motion.div>
-
             <motion.div className={dika["bagian-situs__deskripsi"]}>
               <div className={dika.kartu}>
                 <p>
@@ -173,8 +169,6 @@ export default function HalamanDika() {
           </div> */}
 
           <section id="sosial" className={dika["bagian-internet"]}>
-            <div className={dika["heading-bagian"]}>Di Internet</div>
-
             <div className={dika["bagian-internet__deskripsi"]}>
               <p>
                 Saya bisa ditemui di internet, meskipun tidak begitu aktif main
