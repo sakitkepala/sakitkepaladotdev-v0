@@ -39,13 +39,11 @@ const vektorTransform = 300;
 export default function HalamanDika() {
   const { scrollY } = useViewportScroll();
 
-  const sectionHai = useElementPageY();
-  const sectionSitus = useElementPageY();
-  const teksDeskripsi = useElementPageY();
+  const refSectionHai = React.useRef(null);
+  const refSectionSitus = React.useRef(null);
 
-  const { refDOM: refSectionHai, pageY: pageYSectionHai } = sectionHai;
-  const { refDOM: refSectionSitus, pageY: pageYSectionSitus } = sectionSitus;
-  const { refDOM: refTeksDeskripsi } = teksDeskripsi;
+  const pageYSectionHai = useElementPageY(refSectionHai);
+  const pageYSectionSitus = useElementPageY(refSectionSitus);
 
   const translateYHai = useTransform(
     scrollY,
@@ -99,7 +97,6 @@ export default function HalamanDika() {
 
             <motion.div
               className={dika["bagian-hai__deskripsi"]}
-              ref={refTeksDeskripsi}
               style={{ y: translateYTeksDeskripsi }}
             >
               <p>
@@ -215,8 +212,7 @@ export default function HalamanDika() {
 
 // My Custom Hook
 
-function useElementPageY() {
-  const refDOM = React.useRef(null);
+function useElementPageY(refDOM) {
   const [pageY, setPageY] = React.useState(null);
 
   React.useEffect(() => {
@@ -225,5 +221,5 @@ function useElementPageY() {
     setPageY(clientY + window.scrollY);
   }, []);
 
-  return { refDOM, pageY };
+  return pageY;
 }
