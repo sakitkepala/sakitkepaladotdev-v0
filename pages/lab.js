@@ -75,7 +75,7 @@ export default function HalamanLab({ listInfo }) {
 
                 <h2 className={lab.judulArtikel}>
                   <NavLink href="https://www.github.com/sakitkepala/wkwkbudgetapp">
-                    Budgeting App <FiExternalLink size="18" />
+                    React Budgeting App <FiExternalLink size="18" />
                   </NavLink>
                 </h2>
               </article>
