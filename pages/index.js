@@ -43,7 +43,7 @@ export default function HalamanDepan({ eksperimen }) {
             <h1 className={old["artikel-dummy__heading"]}>TO BE DEVELOPED</h1>
             <div className={old["artikel-dummy__deskripsi"]}>
               Please come back later or visit available links above for
-              something uninteresting.
+              something uninteresting 😬
             </div>
           </div>
         </motion.main>

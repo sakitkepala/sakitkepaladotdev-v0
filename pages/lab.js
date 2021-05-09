@@ -9,7 +9,7 @@ import { NavLink } from "../components/nav-link";
 import classnames from "classnames";
 import old from "../styles/Dika.module.scss";
 import layout from "../styles/Layout.module.scss";
-import lab from "../styles/Lab.module.scss";
+import lab from "../styles/HalamanLab.module.scss";
 
 function ListItemEksperimen({ info }) {
   const { repo, tanggal, judul, source } = info;
