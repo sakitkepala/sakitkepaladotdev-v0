@@ -4,19 +4,22 @@
 }
 
 .main {
-  @media (max-width: 600px) {
-    margin-top: 120px; // not working
-  }
+  margin-top: 120px;
 }
 
 .bagianLab {
-  @media (max-width: 600px) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    overflow-x: hidden;
+  margin-left: 90px;
+  margin-right: 90px;
 
+  @media (max-width: 800px) {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  @media (max-width: 600px) {
     margin-left: 42px;
     margin-right: 42px;
+    overflow-x: hidden;
   }
 }
 
@@ -37,11 +40,26 @@
 
 .listArtikel {
   margin-top: 27px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 60px;
+  row-gap: 27px;
+  overflow-x: hidden;
+
+  @media (max-width: 800px) {
+    column-gap: 30px;
+  }
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 27px;
+    overflow-x: hidden;
+  }
 }
 
 .itemArtikel {
-  margin-top: 27px;
-
   .imageArtikel {
     height: 90px;
     border: solid #002f3c 2px;
