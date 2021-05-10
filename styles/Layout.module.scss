@@ -40,43 +40,100 @@
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
 
   min-height: 72px;
   margin: 0 30px;
 
+  font-size: 16px;
+  font-family: "DM Mono", monospace;
+
   @media (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    margin: 0;
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+    font-size: 14px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__logo {
-    font-size: smaller;
     font-family: "Krona One", sans-serif;
     text-align: left;
 
+    @media (max-width: 800px) {
+      height: 42px;
+      margin-left: 42px;
+      text-align: left;
+    }
+
     @media (max-width: 600px) {
-      height: 36px;
+      height: 30px;
+      margin: 0;
       text-align: center;
     }
   }
 
   &__hak-cipta {
-    font-size: small;
-    font-family: "DM Mono", monospace;
     text-align: center;
 
     @media (max-width: 800px) {
+      height: 42px;
+      margin-right: 42px;
       text-align: right;
     }
 
     @media (max-width: 600px) {
-      height: 52px;
+      margin: 0;
       text-align: center;
+    }
+  }
+
+  &__kode-sumber {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    text-align: right;
+
+    @media (max-width: 800px) {
+      justify-content: center;
+      height: 42px;
+
+      background-color: #002f3c;
+      color: ghostwhite;
+
+      text-align: center;
+    }
+
+    & > span {
+      margin-right: 12px;
+
+      @media (max-width: 600px) {
+        margin-right: 12px;
+      }
+    }
+
+    .linkGithub {
+      width: 36px;
+      height: 36px;
+
+      @media (max-width: 800px) {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+      }
     }
   }
 }
