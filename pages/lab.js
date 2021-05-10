@@ -5,6 +5,7 @@ import { getSemuaSortir } from "../lib/api/eksperimen";
 import { LogoHeader } from "../components/logo-header";
 import { MenuNavigasi } from "../components/navigasi";
 import { NavLink } from "../components/nav-link";
+import { Footer } from "../components/footer-halaman";
 
 import classnames from "classnames";
 import old from "../styles/Dika.module.scss";
@@ -115,16 +116,7 @@ export default function HalamanLab({ listInfo }) {
           </div>
         </motion.main>
 
-        <footer className={layout.footer}>
-          <div className={layout["footer__logo"]}>
-            <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
-          </div>
-
-          <div className={layout["footer__hak-cipta"]}>
-            {new Date().getFullYear()}
-            <span>☕&#10157;</span> Andika Priyotama D.
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

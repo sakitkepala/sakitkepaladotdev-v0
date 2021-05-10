@@ -4,6 +4,7 @@ import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { LogoHeader } from "../components/logo-header";
 import { MenuNavigasi } from "../components/navigasi";
 import { NavLink } from "../components/nav-link";
+import { Footer } from "../components/footer-halaman";
 
 import { IoMail } from "react-icons/io5";
 import { SiBitbucket, SiGithub, SiGitlab, SiLinkedin } from "react-icons/si";
@@ -187,28 +188,7 @@ export default function HalamanDika() {
           </section>
         </motion.main>
 
-        <footer className={layout.footer}>
-          <div className={layout.grid}>
-            <div className={layout["footer__logo"]}>
-              <NavLink href="/">&#47; Eksperimennya Dika</NavLink>
-            </div>
-
-            <div className={layout["footer__hak-cipta"]}>
-              {new Date().getFullYear()} <span>☕&#10157;</span> Andika
-              Priyotama D.
-            </div>
-          </div>
-
-          <div className={layout["footer__kode-sumber"]}>
-            <span>Kode sumber di</span>{" "}
-            <a
-              className={layout.linkGithub}
-              href="https://github.com/sakitkepala/sakitkepaladotdev"
-            >
-              <SiGithub size="100%" />
-            </a>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
